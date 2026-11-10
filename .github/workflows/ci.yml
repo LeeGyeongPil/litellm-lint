@@ -1,0 +1,21 @@
+# No keys, no network, no litellm needed: the tests run against the built-in snapshot.
+name: ci
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "17 3 * * 1"   # weekly: catch breakage from new dependency releases
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.12", "3.14"]
+    steps:
+      - uses: actions/checkout@v6.1.0
+      - uses: astral-sh/setup-uv@v10.3.3
+      - run: uv python install ${{ matrix.python-version }}
+      - run: uv sync --locked --python ${{ matrix.python-version }}
+      - run: uv run --locked --python ${{ matrix.python-version }} pytest -q
