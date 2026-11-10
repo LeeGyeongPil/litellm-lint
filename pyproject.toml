@@ -1,0 +1,48 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "litellm-lint"
+version = "0.1.0"
+description = "Static linter for LiteLLM proxy config.yaml: typo'd keys, missing env vars, dangling fallbacks and aliases. Unofficial."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+authors = [{ name = "LeeGyeongPil" }]
+keywords = ["litellm", "linter", "config", "yaml", "llm-gateway", "proxy"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Software Development :: Quality Assurance",
+    "Typing :: Typed",
+]
+dependencies = ["ruamel.yaml>=0.18,<0.20"]
+
+[project.urls]
+Homepage = "https://github.com/LeeGyeongPil/litellm-lint"
+Issues = "https://github.com/LeeGyeongPil/litellm-lint/issues"
+
+[project.scripts]
+litellm-lint = "litellm_lint.cli:main"
+
+[dependency-groups]
+dev = ["pytest>=8", "jsonschema>=4.20"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/litellm_lint"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src", "scripts", "examples", "docs", "tests", "README.md", "LICENSE", "CHANGELOG.md", ".pre-commit-hooks.yaml"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

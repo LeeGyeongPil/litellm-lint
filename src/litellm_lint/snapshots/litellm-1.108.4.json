@@ -1,0 +1,8050 @@
+{
+ "meta": {
+  "litellm_version": "1.108.4",
+  "python_version": "3.12.13",
+  "generated_at": "2026-11-10",
+  "generator_version": "1",
+  "licence_note": "Key names and simple types only; litellm is MIT licensed, enterprise/ paths are never read.",
+  "sources": [
+   "litellm.proxy._types.ConfigYAML / ConfigGeneralSettings (pydantic fields)",
+   "litellm.Router.__init__ signature minus constants.ROUTER_SETTINGS_MANAGED_OUTSIDE_CONFIG",
+   "public non-callable attributes of the litellm module",
+   "AST scan of litellm/proxy/*.py for config.get / general_settings.get / litellm_settings branches",
+   "AST scan of litellm/integrations/ (enterprise excluded) for litellm_settings[...] / .get reads",
+   "litellm.proxy.common_utils.config_includes.INCLUDE_KEY (top-level include directive)",
+   "litellm.types.router.LiteLLM_Params / GenericLiteLLMParams (pydantic fields)",
+   "litellm.completion signature and litellm.OPENAI_CHAT_COMPLETION_PARAMS (names only)",
+   "litellm.provider_list (enum values)"
+  ]
+ },
+ "top_level": {
+  "agent_list": {
+   "source": "ast:proxy_server.py config.get"
+  },
+  "agents": {
+   "source": "ast:proxy_server.py config.get"
+  },
+  "assistant_settings": {
+   "source": "ast:proxy_server.py config.get"
+  },
+  "callback_settings": {
+   "source": "ast:proxy_server.py config.get"
+  },
+  "credential_list": {
+   "source": "ast:proxy_server.py config.get"
+  },
+  "default_vertex_config": {
+   "source": "ast:proxy_server.py config.get"
+  },
+  "environment_variables": {
+   "source": "pydantic:ConfigYAML"
+  },
+  "files_settings": {
+   "source": "ast:proxy_server.py config.get"
+  },
+  "finetune_settings": {
+   "source": "ast:proxy_server.py config.get"
+  },
+  "force_reload": {
+   "source": "ast:proxy_server.py config.get"
+  },
+  "general_settings": {
+   "source": "pydantic:ConfigYAML"
+  },
+  "guardrails": {
+   "source": "ast:proxy_server.py config.get"
+  },
+  "include": {
+   "source": "constant:config_includes.INCLUDE_KEY"
+  },
+  "interval_hours": {
+   "source": "ast:proxy_server.py config.get"
+  },
+  "litellm_settings": {
+   "source": "pydantic:ConfigYAML"
+  },
+  "mcp_servers": {
+   "source": "ast:proxy_server.py config.get"
+  },
+  "mcp_tools": {
+   "source": "ast:proxy_server.py config.get"
+  },
+  "model_list": {
+   "source": "pydantic:ConfigYAML"
+  },
+  "policies": {
+   "source": "ast:proxy_server.py config.get"
+  },
+  "policy_attachments": {
+   "source": "ast:proxy_server.py config.get"
+  },
+  "prompts": {
+   "source": "ast:proxy_server.py config.get"
+  },
+  "router_settings": {
+   "source": "pydantic:ConfigYAML"
+  },
+  "sandbox_tools": {
+   "source": "ast:proxy_server.py config.get"
+  },
+  "search_tools": {
+   "source": "ast:proxy_server.py config.get"
+  },
+  "vector_store_registry": {
+   "source": "ast:proxy_server.py config.get"
+  },
+  "worker_registry": {
+   "source": "pydantic:ConfigYAML"
+  }
+ },
+ "router_settings": {
+  "alerting_config": {
+   "type": [
+    "any"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "allowed_fails": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "allowed_fails_policy": {
+   "type": [
+    "any"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "background_health_check_model_groups": {
+   "type": [
+    "array",
+    "null"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "cache_kwargs": {
+   "type": [
+    "object"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "cache_responses": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "caching_groups": {
+   "type": [
+    "array",
+    "null"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "client_ttl": {
+   "type": [
+    "integer"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "content_policy_fallbacks": {
+   "type": [
+    "array"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "context_window_fallbacks": {
+   "type": [
+    "array"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "cooldown_time": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "debug_level": {
+   "type": [
+    "string"
+   ],
+   "enum": [
+    "DEBUG",
+    "INFO"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "default_fallbacks": {
+   "type": [
+    "array",
+    "null"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "default_litellm_params": {
+   "type": [
+    "null",
+    "object"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "default_max_parallel_requests": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "default_priority": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "deployment_affinity_ttl_seconds": {
+   "type": [
+    "integer"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "disable_cooldowns": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "enable_health_check_routing": {
+   "type": [
+    "boolean"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "enable_pre_call_checks": {
+   "type": [
+    "boolean"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "enable_tag_filtering": {
+   "type": [
+    "boolean"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "enable_weighted_failover": {
+   "type": [
+    "boolean"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "fallback_on_unsupported_params": {
+   "type": [
+    "boolean"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "fallbacks": {
+   "type": [
+    "array"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "guardrail_list": {
+   "type": [
+    "array",
+    "null"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "health_check_ignore_transient_errors": {
+   "type": [
+    "boolean"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "health_check_staleness_threshold": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "max_fallbacks": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "model_group_affinity_config": {
+   "type": [
+    "null",
+    "object"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "model_group_alias": {
+   "type": [
+    "null",
+    "object"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "model_group_retry_policy": {
+   "type": [
+    "object"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "num_retries": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "optional_pre_call_checks": {
+   "type": [
+    "array",
+    "null"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "plugins": {
+   "type": [
+    "array",
+    "null"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "polling_interval": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "provider_budget_config": {
+   "type": [
+    "null",
+    "object"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "redis_db": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "redis_host": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "redis_password": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "redis_port": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "redis_url": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "retry_after": {
+   "type": [
+    "integer"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "retry_policy": {
+   "type": [
+    "any"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "routing_groups": {
+   "type": [
+    "array",
+    "null"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "routing_strategy": {
+   "type": [
+    "string"
+   ],
+   "enum": [
+    "simple-shuffle",
+    "least-busy",
+    "usage-based-routing",
+    "latency-based-routing",
+    "cost-based-routing",
+    "usage-based-routing-v2",
+    "lar1"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "routing_strategy_args": {
+   "type": [
+    "object"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "set_verbose": {
+   "type": [
+    "boolean"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "stream_timeout": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "tag_filtering_match_any": {
+   "type": [
+    "boolean"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "tag_routing_prefix": {
+   "type": [
+    "string"
+   ],
+   "source": "signature:Router.__init__"
+  },
+  "timeout": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "signature:Router.__init__"
+  }
+ },
+ "litellm_settings": {
+  "ANTHROPIC_WIF_KWARGS_KEYS": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "AWS_CREDENTIAL_KWARGS_KEYS": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "AZURE_DEFAULT_API_VERSION": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "string"
+  },
+  "AZURE_OPENAI_AUDIO_PROVIDERS": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "AllEmbeddingInputValues": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "AllMessageValues": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "AllPromptValues": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "AttachmentTool": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "BATCH_GUARDRAIL_RESPONSE_FIELD": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "string"
+  },
+  "BEDROCK_CONVERSE_MODELS": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "COHERE_DEFAULT_EMBEDDING_INPUT_TYPE": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "string"
+  },
+  "CONFIGURABLE_CLIENTSIDE_AUTH_PARAMS": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "DEFAULT_ALLOWED_FAILS": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "integer"
+  },
+  "DEFAULT_BATCH_SIZE": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "integer"
+  },
+  "DEFAULT_FLUSH_INTERVAL_SECONDS": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "integer"
+  },
+  "DEFAULT_IMAGE_ENDPOINT_MODEL": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "string"
+  },
+  "DEFAULT_IN_MEMORY_TTL": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "integer"
+  },
+  "DEFAULT_MAX_RETRIES": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "integer"
+  },
+  "DEFAULT_MAX_TOKENS": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "integer"
+  },
+  "DEFAULT_MOCK_RESPONSE_COMPLETION_TOKEN_COUNT": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "integer"
+  },
+  "DEFAULT_MOCK_RESPONSE_PROMPT_TOKEN_COUNT": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "integer"
+  },
+  "DEFAULT_POLLING_INTERVAL": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "number"
+  },
+  "DEFAULT_REPLICATE_POLLING_DELAY_SECONDS": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "integer"
+  },
+  "DEFAULT_REPLICATE_POLLING_RETRIES": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "integer"
+  },
+  "DEFAULT_REQUEST_TIMEOUT": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "number"
+  },
+  "DEFAULT_SOFT_BUDGET": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "number"
+  },
+  "DEFAULT_VIDEO_ENDPOINT_MODEL": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "string"
+  },
+  "EmbeddingInput": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "FILE_CONTENT_STREAMING_PROVIDERS": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "FIRST_COMPLETED": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "string"
+  },
+  "HIDDEN_PARAMS_ATTR": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "string"
+  },
+  "HUMANLOOP_PROMPT_CACHE_TTL_SECONDS": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "integer"
+  },
+  "LIST_BATCHES_SUPPORTED_PROVIDERS": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "LITELLM_CHAT_PROVIDERS": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "LITELLM_DETAILS_FALLBACK_RESPONSE_FIELD": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "string"
+  },
+  "LITELLM_EXCEPTION_TYPES": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "MOCK_RESPONSE_TYPE": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "NADIR_DEFAULT_API_BASE": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "string"
+  },
+  "NOT_GIVEN": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "NativeOutputAttemptResult": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "OAUTH_TOKEN_EXCHANGE_KWARGS_KEYS": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "OPENAI_AUDIO_TRANSCRIPTION_PROVIDERS": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "OPENAI_CHAT_COMPLETION_PARAMS": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "OPENAI_COMPATIBLE_BATCH_AND_FILES_PROVIDERS": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "OPENAI_FINISH_REASONS": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "OPENAI_WIF_KWARGS_KEYS": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "OPTIONAL_KWARGS_KEYS": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "OpenAIMessageContent": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "OpenAIMessageContentListBlock": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "OpenAIRealtimeEvents": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "PART_UNION_TYPES": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "PROVIDER_AFFINITY_HEADER_KWARG_KEY": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "string"
+  },
+  "REPEATED_STREAMING_CHUNK_LIMIT": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "integer"
+  },
+  "ROUTER_MAX_FALLBACKS": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "integer"
+  },
+  "ResponsesTerminalEvent": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "SCHEDULER_QUEUE_TARGET": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "string"
+  },
+  "SPECIAL_MODEL_INFO_PARAMS": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "TYPE_CHECKING": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "Tokenizer": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "ToolMessageContentPart": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "VALID_LITELLM_ENVIRONMENTS": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "ValidAssistantMessageContentTypes": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "ValidChatCompletionMessageContentTypes": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "ValidUserMessageContentTypes": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "WANDB_MODELS": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "WATSONX_DEFAULT_API_VERSION": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "string"
+  },
+  "aclient_session": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "adapters": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "add_function_to_prompt": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "add_user_information_to_llm_headers": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "agent_search_embedding_model": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "ai21_chat_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "ai21_key": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "ai21_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "aiml_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "aiohttp_trust_env": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "aleph_alpha_key": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "aleph_alpha_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "all_embedding_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "allow_dynamic_callback_disabling": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "allowed_fails": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "integer"
+  },
+  "amazon_nova_api_key": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "amazon_nova_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "annotations": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "anthropic_batches_instance": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "anthropic_beta_headers_url": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "string"
+  },
+  "anthropic_chat_completions": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "anthropic_key": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "anthropic_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "anthropic_prompt_caching_ttl": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "anthropic_sse_ping_interval_seconds": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "number"
+  },
+  "anyscale_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "api_base": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "api_key": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "api_version": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "apply_search_free_tier": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "argilla_batch_size": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "argilla_transformation_object": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "assemblyai_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "audit_log_callbacks": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "autorouter_presets_url": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "string"
+  },
+  "aws_polly_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "aws_sqs_callback_params": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "azure_ai_embedding": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "azure_ai_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "azure_anthropic_chat_completions": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "azure_anthropic_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "azure_assistants_api": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "azure_audio_transcriptions": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "azure_batches_instance": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "azure_chat_completions": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "azure_embedding_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "object"
+  },
+  "azure_files_instance": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "azure_fine_tuning_apis_instance": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "azure_key": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "azure_llms": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "object"
+  },
+  "azure_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "azure_o1_chat_completions": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "azure_text_completions": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "azure_text_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "banned_keywords_list": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "base_llm_aiohttp_handler": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "base_llm_http_handler": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "baseten_key": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "baseten_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "batch_line_item_callbacks": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "bedrock_converse_chat_completion": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "bedrock_converse_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "bedrock_embedding": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "bedrock_embedding_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "bedrock_files_instance": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "bedrock_image_edit": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "bedrock_image_generation": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "bedrock_mantle_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "bedrock_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "bedrock_neutralize_orphaned_tool_blocks": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "bedrock_request_metadata_fields": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "bedrock_rerank": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "bfl_image_edit": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "bfl_image_generation": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "black_forest_labs_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "block_requests_for_models_without_pricing": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "blocked_user_list": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "blog_posts_url": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "string"
+  },
+  "budget_duration": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "budget_exceeded_status_code": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "integer"
+  },
+  "budget_exceeded_throttle_percentage": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "budget_rollover": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "bytez_key": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "bytez_transformation": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "cache": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "caching_with_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "callback_settings": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "object"
+  },
+  "callbacks": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "cerebras_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "chatgpt_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "check_provider_endpoint": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "clarifai_key": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "clarifai_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "client_session": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "cloudflare_api_key": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "cloudflare_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "codestral_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "codestral_text_completions": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "cohere_chat_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "cohere_embedding_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "cohere_key": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "cohere_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "cold_storage_custom_logger": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "cometapi_key": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "cometapi_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "common_cloud_provider_auth_params": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "object"
+  },
+  "config_path": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "content_policy_fallbacks": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "context_window_fallbacks": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "coralbricks_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "cost_discount_config": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "object"
+  },
+  "cost_margin_config": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "object"
+  },
+  "credential_list": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "custom_prometheus_metadata_labels": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "custom_prometheus_tags": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "custom_prompt_dict": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "object"
+  },
+  "custom_provider_map": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "darkbloom_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "dashscope_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "databricks_embedding": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "databricks_key": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "databricks_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "datadog_llm_observability_params": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "datadog_params": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "datadog_use_v1": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "datarobot_key": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "datarobot_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "deepgram_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "deepinfra_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "deepseek_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "default_fallbacks": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "default_in_memory_ttl": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "default_internal_user_params": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "default_key_generate_params": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "default_key_max_budget_alert_emails": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "default_max_internal_user_budget": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "default_redis_batch_cache_expiry": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "default_redis_ttl": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "default_soft_budget": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "number"
+  },
+  "default_team_params": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "default_team_settings": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "disable_add_prefix_to_prompt": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "disable_add_transform_inline_image_block": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "disable_add_user_agent_to_request_tags": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "disable_aiohttp_transport": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "disable_aiohttp_trust_env": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "disable_anthropic_gemini_context_caching_transform": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "disable_copilot_system_to_assistant": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "disable_end_user_cost_tracking": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "disable_end_user_cost_tracking_prometheus_only": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "disable_hf_tokenizer_download": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "disable_stop_sequence_limit": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "disable_streaming_logging": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "disable_token_counter": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "disable_vertex_batch_output_transformation": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "docker_model_runner_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "drop_params": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "dynamodb_table_name": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "edenai_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "elevenlabs_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "email": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "empower_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "enable_anthropic_prompt_caching": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "enable_azure_ad_token_refresh": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "enable_caching_on_provider_specific_optional_params": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "enable_end_user_cost_tracking_prometheus_only": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "enable_gemini_default_thinking_level_low": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "enable_json_schema_validation": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "enable_key_alias_format_validation": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "enable_loadbalancing_on_batch_endpoints": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "enable_model_config_credential_overrides": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "enable_preview_features": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "error_logs": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "object"
+  },
+  "expose_router_debug_in_errors": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "extra_spend_tag_headers": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "failure_callback": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "fal_ai_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "fallbacks": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "featherless_ai_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "filter_invalid_headers": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "fireworks_ai_embedding_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "fireworks_ai_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "force_ipv4": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "force_redis_hash_tag_grouping": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "forward_traceparent_to_llm_provider": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "friendliai_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "galadriel_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "gcs_pub_sub_use_v1": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "gdc_api_base": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "gdc_key": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "gdc_transformation": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "gemini_include_thoughts_default": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "gemini_live_defer_setup": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "gemini_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "generic_api_use_v1": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "generic_logger_headers": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "gigachat_key": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "gigachat_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "github_copilot_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "global_bitbucket_config": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "global_disable_no_log_param": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "global_gitlab_config": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "google_batch_embeddings": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "google_moderation_confidence_threshold": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "gradient_ai_api_key": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "gradient_ai_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "groq_chat_completions": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "groq_key": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "groq_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "guardrail_name_config_map": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "object"
+  },
+  "headers": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "heroku_key": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "heroku_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "heroku_transformation": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "http2": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "huggingface_embed": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "huggingface_key": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "huggingface_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "hyperbolic_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "in_memory_llm_clients_cache": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "inception_key": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "inception_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "include_cost_in_streaming_usage": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "infinity_key": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "infinity_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "initialized_langfuse_clients": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "integer"
+  },
+  "input_callback": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "internal_user_budget_duration": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "jina_ai_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "json_logs": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "key_alias_pattern": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "key_generation_settings": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "known_tokenizer_config": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "object"
+  },
+  "lambda_ai_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "langfuse_default_tags": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "langfuse_enable_update_trace_keys": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "langsmith_batch_size": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "lemonade_key": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "lemonade_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "lemonade_transformation": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "litellm_mode": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "string"
+  },
+  "llama_api_key": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "llama_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "llamagate_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "llamaguard_model_name": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "llamaguard_unsafe_content_categories": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "llm_guard_mode": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "string"
+  },
+  "llm_http_handler": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "log_auth_failure_key_identity": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "log_client_error_tracebacks": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "log_level": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "string"
+  },
+  "log_raw_request_response": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "logged_real_time_event_types": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "logging": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "longer_context_model_fallback_dict": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "object"
+  },
+  "maritalk_key": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "maritalk_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "max_budget": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "number"
+  },
+  "max_end_user_budget": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "max_end_user_budget_id": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "max_fallbacks": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "max_internal_user_budget": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "max_tokens": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "integer"
+  },
+  "max_ui_session_budget": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "number"
+  },
+  "max_user_budget": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "mcp_tool_search": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "microsoft_365_copilot_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "minimax_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "mistral_chat_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "model_alias_map": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "object"
+  },
+  "model_cost": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "object"
+  },
+  "model_cost_map_url": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "string"
+  },
+  "model_fallbacks": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "model_group_settings": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "model_list": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "model_list_set": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "models_by_provider": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "object"
+  },
+  "modelscope_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "modify_params": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "moonshot_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "morph_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "nadir_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "nebius_embedding_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "nebius_key": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "nebius_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "network_mock": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "newrelic_params": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "nlp_cloud_key": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "nlp_cloud_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "novita_api_key": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "novita_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "nscale_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "num_retries": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "num_retries_per_request": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "nvidia_nim_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "nvidia_riva_audio_transcriptions": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "nvidia_riva_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "oci_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "oci_transformation": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "ollama_key": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "ollama_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "open_ai_chat_completion_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "open_ai_embedding_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "open_ai_text_completion_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "openai_assistants_api": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "openai_audio_transcriptions": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "openai_batches_instance": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "openai_chat_completions": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "openai_compatible_endpoints": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "openai_compatible_providers": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "openai_files_instance": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "openai_fine_tuning_apis_instance": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "openai_image_generation_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "openai_image_variations": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "openai_key": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "openai_like_chat_completion": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "openai_like_embedding": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "openai_like_key": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "openai_moderations_model_name": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "openai_system_messages_first": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "openai_text_completion_compatible_providers": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "openai_text_completions": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "openai_video_generation_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "openrouter_key": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "openrouter_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "organization": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "otel_tenant_destination_mode": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "output_parse_pii": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "overwrite_user_with_key_hash": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "ovhcloud_embedding_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "ovhcloud_key": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "ovhcloud_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "ovhcloud_transformation": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "palm_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "perplexity_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "personal_key_model_access_from_teams": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "petals_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "pointfive_params": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "post_call_rules": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "pre_call_rules": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "predibase_chat_completions": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "predibase_key": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "predibase_tenant_id": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "presidio_ad_hoc_recognizers": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "priority_reservation": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "project": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "prometheus_deployment_and_latency_caller_identity": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "string"
+  },
+  "prometheus_emit_input_sequence_length_label": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "prometheus_emit_rate_limit_labels": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "prometheus_emit_stream_label": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "prometheus_end_user_metrics_cleanup_interval_seconds": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "number"
+  },
+  "prometheus_end_user_metrics_max_series_per_metric": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "integer"
+  },
+  "prometheus_end_user_metrics_ttl_seconds": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "number"
+  },
+  "prometheus_exclude_labels": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "prometheus_exclude_metrics": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "prometheus_initialize_budget_metrics": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "prometheus_latency_buckets": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "prometheus_metrics_cleanup_interval_seconds": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "number"
+  },
+  "prometheus_metrics_config": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "prometheus_metrics_max_series_per_metric": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "prometheus_metrics_ttl_seconds": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "prometheus_user_budget_label_include_email_alias": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "prompt_name_config_map": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "object"
+  },
+  "provider_url_destination_allowed_hosts": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "proxy_auth": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "public_agent_groups": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "public_mcp_hub_strict_whitelist": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "public_mcp_servers": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "public_model_groups": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "public_model_groups_links": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "object"
+  },
+  "public_skills_index": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "publicai_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "qwen_ai_platform_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "qwencloud_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "reasoning_auto_summary": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "recraft_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "redact_messages_in_exceptions": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "redact_user_api_key_info": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "reducto_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "replicate_key": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "replicate_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "request_correlation_in_logs": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "request_timeout": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "number"
+  },
+  "request_timeout_explicitly_set": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "require_auth_for_metrics_endpoint": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "require_managed_files": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "retry": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "return_response_headers": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "route_all_chat_openai_to_responses": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "runwayml_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "s3_audit_callback_params": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "s3_callback_params": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "safe_memory_mode": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "sagemaker_chat_completion": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "sagemaker_llm": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "sambanova_embedding_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "sambanova_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "sap_gen_ai_hub_chat_completions": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "sap_gen_ai_hub_emb": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "sap_service_key": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "scaledown_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "secret_manager_client": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "service_callback": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "set_verbose": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "skill_search_embedding_model": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "skip_system_message_in_guardrail": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "skip_tool_message_in_guardrail": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "snowflake_key": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "snowflake_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "soniox_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "sse_keepalive_ping_interval_seconds": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "ssl_certificate": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "ssl_ecdh_curve": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "ssl_security_level": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "ssl_verify": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "stability_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "standard_logging_payload_excluded_fields": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "store_audit_logs": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "strip_anthropic_total_tokens": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "success_callback": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "suppress_debug_info": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "tag_budget_config": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "tencent_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "text_completion_codestral_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "text_completion_inception_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "together_ai_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "together_rerank": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "togetherai_api_key": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "token": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "tracer": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "transcribe_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "turn_off_message_logging": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "upperbound_key_generate_params": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "use_aiohttp_transport": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "use_chat_completions_url_for_anthropic_messages": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "use_client": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "use_litellm_proxy": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "user_url_allowed_hosts": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "user_url_validation": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "v0_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "validate_end_user_id_in_db": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "boolean"
+  },
+  "vector_store_index_registry": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "vector_store_registry": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "vector_store_search_failure_mode": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "string"
+  },
+  "verbose_logger": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "vercel_ai_gateway_key": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "vercel_ai_gateway_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "vertexAITextEmbeddingConfig": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "vertex_ai_ai21_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "vertex_ai_batches_instance": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "vertex_ai_files_instance": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "vertex_ai_image_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "vertex_ai_safety_settings": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "vertex_ai_video_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "vertex_anthropic_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "vertex_chat_completion": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "vertex_chat_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "vertex_code_chat_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "vertex_code_text_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "vertex_deepseek_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "vertex_embedding": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "vertex_embedding_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "vertex_fine_tuning_apis_instance": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "vertex_gemma_chat_completion": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "vertex_image_generation": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "vertex_language_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "vertex_llama3_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "vertex_location": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "vertex_minimax_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "vertex_mistral_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "vertex_model_garden_chat_completion": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "vertex_moonshot_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "vertex_multimodal_embedding": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "vertex_openai_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "vertex_partner_models_chat_completion": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "vertex_project": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "vertex_text_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "vertex_vision_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "vertex_zai_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "volcengine_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "voyage_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "wandb_key": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "wandb_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "watsonx_chat_completion": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "watsonx_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "xai_batch_results_instance": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "xai_batches_instance": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "xai_key": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "xai_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "zai_models": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "array"
+  },
+  "zerobus_params": {
+   "type": [
+    "any"
+   ],
+   "source": "module_attr",
+   "default_type": "any"
+  },
+  "budget_reset_time": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy_server.py litellm_settings"
+  },
+  "cache_params": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy_server.py litellm_settings"
+  },
+  "enable_redis_auth_cache": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy_server.py litellm_settings"
+  },
+  "global_prompt_directory": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy_server.py litellm_settings"
+  },
+  "guardrails": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy_server.py litellm_settings"
+  },
+  "mcp_aliases": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy_server.py litellm_settings"
+  },
+  "mcp_semantic_tool_filter": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy_server.py litellm_settings"
+  },
+  "priority_reservation_settings": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy_server.py litellm_settings"
+  },
+  "responses": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy_server.py litellm_settings"
+  },
+  "websearch_interception_params": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy_server.py litellm_settings"
+  },
+  "code_interpreter_interception_params": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:integrations litellm_settings"
+  },
+  "compression_interception_params": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:integrations litellm_settings"
+  }
+ },
+ "general_settings": {
+  "admin_only_routes": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "admission_queue_timeout_seconds": {
+   "type": [
+    "number"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "agent_access_default_deny": {
+   "type": [
+    "boolean"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "alert_to_webhook_url": {
+   "type": [
+    "null",
+    "object"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "alert_type_config": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "alert_types": {
+   "type": [
+    "array",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "alerting": {
+   "type": [
+    "array",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "alerting_args": {
+   "type": [
+    "null",
+    "object"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "alerting_threshold": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "allow_cli_sso_verification_uri_complete": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "allow_client_side_credentials": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "allow_public_health_readiness_details": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "allow_requests_on_db_unavailable": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "allow_unmanaged_response_ids": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "allow_user_auth": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "allowed_file_extensions": {
+   "type": [
+    "array",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "allowed_ips": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "allowed_routes": {
+   "type": [
+    "array",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "always_include_stream_usage": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "apply_user_budget_to_team_keys": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "auto_redirect_ui_login_to_sso": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "background_health_check_model_groups": {
+   "type": [
+    "array",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "background_health_checks": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "blocked_file_extensions": {
+   "type": [
+    "array",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "cancel_on_disconnect": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "claude_code_gateway_managed_settings": {
+   "type": [
+    "null",
+    "object"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "completion_model": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "control_plane_url": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "coordination_redis": {
+   "type": [
+    "any"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "custom_auth": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "custom_auth_run_common_checks": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "custom_key_generate": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "custom_key_policy": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "custom_key_update": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "custom_sso": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "custom_team_metadata_validate": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "custom_ui_sso_sign_in_handler": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "dangerously_permit_weak_or_unset_master_key": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "database_args": {
+   "type": [
+    "any"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "database_connect_timeout": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "database_connection_pool_limit": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "database_connection_pool_timeout": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "database_connection_timeout": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "database_disable_prepared_statements": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "database_extra_connection_params": {
+   "type": [
+    "null",
+    "object"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "database_max_idle_connection_lifetime": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "database_socket_timeout": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "database_type": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "enum": [
+    "dynamo_db"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "database_url": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "default_team_disabled": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "disable_auto_add_proxy_admin_to_teams": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "disable_batch_input_file_rate_limiting": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "disable_bedrock_agent_runtime_passthrough": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "disable_budget_reservation": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "disable_custom_api_keys": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "disable_env_credential_login": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "disable_error_logs": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "disable_fallbacks_on_per_model_rate_limits": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "disable_key_generate_for_org_admin": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "disable_master_key_return": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "disable_model_info_refresh": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "disable_password_login_when_sso_enabled": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "disable_prisma_schema_update": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "disable_requester_ip_address_logging": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "disable_reset_budget": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "disable_responses_id_security": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "disable_retry_on_max_parallel_request_limit_error": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "disable_spend_logs": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "disable_spend_updates": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "drain_endpoint_token": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "enable_claude_code_gateway": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "enable_drain_endpoint": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "enable_health_check_routing": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "enable_jwt_auth": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "enable_oauth2_auth": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "enable_oauth2_proxy_auth": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "enable_openai_websocket_passthrough": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "enable_public_model_hub": {
+   "type": [
+    "boolean"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "enforce_fallback_model_access": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "enforce_rbac": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "enforce_user_param": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "enforced_params": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "expose_fallback_errors_to_caller": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "fail_closed_budget_enforcement": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "fail_closed_rate_limit_enforcement": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "failed_login_block_seconds": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "failed_login_window_seconds": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "forward_client_headers_to_llm_api": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "forward_llm_provider_auth_headers": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "forward_openai_org_id": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "global_max_parallel_requests": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "health_check_concurrency": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "health_check_details": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "health_check_ignore_transient_errors": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "health_check_interval": {
+   "type": [
+    "integer"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "health_check_skip_disabled_background_models": {
+   "type": [
+    "boolean"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "health_check_staleness_threshold": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "hide_default_credentials_hint": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "include_call_id_in_error_body": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "infer_model_from_keys": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "key_management_settings": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "key_management_system": {
+   "type": [
+    "any"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "litellm_jwtauth": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "litellm_key_header_name": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "litellm_license": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "master_key": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "max_batch_file_records": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "max_batch_file_size_mb": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "max_batch_file_uploads_per_day": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "max_failed_login_attempts_per_source": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "max_failed_login_attempts_per_source_overrides": {
+   "type": [
+    "null",
+    "object"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "max_file_downloads_per_minute": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "max_file_size_mb": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "max_in_flight_requests_per_worker": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "max_parallel_requests": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "max_queued_requests_per_worker": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "max_request_size_mb": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "max_response_size_mb": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "maximum_autorouter_session_retention_period": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "maximum_daily_tag_spend_retention_period": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "maximum_health_check_retention_period": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "maximum_spend_logs_cleanup_batch_size": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "maximum_spend_logs_cleanup_batch_timeout": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "maximum_spend_logs_cleanup_cron": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "maximum_spend_logs_cleanup_max_batches": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "maximum_spend_logs_cleanup_run_budget": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "maximum_spend_logs_retention_interval": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "maximum_spend_logs_retention_period": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "mcp_advertised_versions": {
+   "type": [
+    "any"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "mcp_allowed_clients": {
+   "type": [
+    "array",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "mcp_client_id_header": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "mcp_client_side_auth_header_name": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "mcp_disabled_capabilities": {
+   "type": [
+    "array",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "mcp_internal_ip_ranges": {
+   "type": [
+    "array",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "mcp_prefer_client_id_metadata_document": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "mcp_require_explicit_server_scope": {
+   "type": [
+    "boolean"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "mcp_required_fields": {
+   "type": [
+    "array",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "mcp_session_token_signing": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "mcp_trusted_proxy_ranges": {
+   "type": [
+    "array",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "mcp_xff_num_trusted_hops": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "missing_session_id": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "enum": [
+    "generate",
+    "reject",
+    "omit"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "model_list_healthy_only": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "oauth2_config_mappings": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "otel": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "pass_through_endpoints": {
+   "type": [
+    "array",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "pass_through_request_timeout": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "passthrough_managed_object_ids": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "password_policy_check_breached_passwords": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "password_policy_min_length": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "password_policy_require_lowercase": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "password_policy_require_numbers": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "password_policy_require_special_characters": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "password_policy_require_uppercase": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "plugins": {
+   "type": [
+    "array",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "provider_url_destination_allowed_hosts": {
+   "type": [
+    "array",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "proxy_batch_polling_interval": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "proxy_batch_write_at": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "proxy_budget_rescheduler_max_time": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "proxy_budget_rescheduler_min_time": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "proxy_config_reload_interval_seconds": {
+   "type": [
+    "integer"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "public_routes": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "reject_clientside_metadata_tags": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "require_end_user_mcp_access_defined": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "require_key_mcp_access_defined": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "responses_websocket_session_limit_seconds": {
+   "type": [
+    "number"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "role_permissions": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "scheduled_job_stagger": {
+   "type": [
+    "any"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "search_tool_deny_by_default": {
+   "type": [
+    "boolean"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "search_tools": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "service_account_settings": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "skip_batch_input_file_rate_limiting_for_models": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "skip_batch_input_file_rate_limiting_for_providers": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "spend_capture_rate_check": {
+   "type": [
+    "any"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "spend_logs_metadata_fields": {
+   "type": [
+    "any"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "spend_report_frequency": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "store_model_in_db": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "store_prompts_in_spend_logs": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "supported_db_objects": {
+   "type": [
+    "array",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "team_metadata_schema": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "team_metadata_validation_error_message": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "team_metadata_validation_timeout": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "token_rate_limit_type": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "tracing": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "track_unmanaged_batch_cost": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "transcribe_media_buckets": {
+   "type": [
+    "array",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "trusted_proxy_ranges": {
+   "type": [
+    "array",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "ui_access_mode": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "enum": [
+    "admin_only",
+    "all"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "use_azure_key_vault": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "use_google_kms": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "use_redis_transaction_buffer": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "use_shared_health_check": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "use_spend_logs_partitioning": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "use_team_public_model_name": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "use_x_forwarded_for": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "user_api_key_cache_max_size": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "user_api_key_cache_ttl": {
+   "type": [
+    "any"
+   ],
+   "source": "ast:proxy general_settings"
+  },
+  "user_header_mappings": {
+   "type": [
+    "array",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "user_header_name": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "user_mcp_management_mode": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "enum": [
+    "restricted",
+    "view_all"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "user_url_allowed_hosts": {
+   "type": [
+    "array",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "user_url_validation": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  },
+  "vector_store_deny_by_default": {
+   "type": [
+    "boolean"
+   ],
+   "source": "pydantic:ConfigGeneralSettings"
+  }
+ },
+ "litellm_params": {
+  "adaptive_router_config": {
+   "type": [
+    "null",
+    "object"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "adaptive_router_default_model": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "allow_client_keepalive_override": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "annotation_cost_per_page": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "annotation_cost_per_page_batches": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "anthropic_disable_workload_identity_federation": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "anthropic_federation_rule_id": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "anthropic_federation_workspace_id": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "anthropic_identity_source": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "anthropic_identity_token": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "anthropic_identity_token_file": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "anthropic_issuer_audience": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "anthropic_issuer_signing_key_ref": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "anthropic_issuer_subject": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "anthropic_issuer_ttl_seconds": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "anthropic_issuer_url": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "anthropic_keycloak_auth_method": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "anthropic_keycloak_client_id": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "anthropic_keycloak_client_secret_ref": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "anthropic_keycloak_scope": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "anthropic_keycloak_token_url": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "anthropic_organization_id": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "anthropic_service_account_id": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "api_base": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "api_key": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "api_version": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "audio": {
+   "type": [
+    "any"
+   ],
+   "source": "signature:litellm.completion"
+  },
+  "auto_router_config": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "auto_router_config_path": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "auto_router_default_model": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "auto_router_embedding_model": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "auto_router_max_input_chars": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "auto_router_model_compression": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "auto_router_routing_compression": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "aws_access_key_id": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "aws_batch_role_arn": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "aws_bedrock_project_id": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "aws_bedrock_runtime_endpoint": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "aws_external_id": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "aws_profile_name": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "aws_region_name": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "aws_role_name": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "aws_secret_access_key": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "aws_session_name": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "aws_session_tags": {
+   "type": [
+    "array",
+    "null"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "aws_session_token": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "aws_sts_endpoint": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "aws_web_identity_token": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "azure_ad_token": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "azure_password": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "azure_scope": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "azure_username": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "base_url": {
+   "type": [
+    "any"
+   ],
+   "source": "signature:litellm.completion"
+  },
+  "bedrock_tags": {
+   "type": [
+    "array",
+    "null"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "bucket_name": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "budget_duration": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "cache_creation_input_audio_token_cost": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "cache_creation_input_token_cost": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "cache_creation_input_token_cost_above_100k_tokens": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "cache_creation_input_token_cost_above_100k_tokens_batches": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "cache_creation_input_token_cost_above_1hr": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "cache_creation_input_token_cost_above_1hr_above_100k_tokens": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "cache_creation_input_token_cost_above_200k_tokens": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "cache_creation_input_token_cost_above_200k_tokens_batches": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "cache_creation_input_token_cost_above_272k_tokens": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "cache_creation_input_token_cost_above_272k_tokens_batches": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "cache_creation_input_token_cost_above_272k_tokens_flex": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "cache_creation_input_token_cost_above_272k_tokens_priority": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "cache_creation_input_token_cost_above_272k_tokens_ultrafast": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "cache_creation_input_token_cost_batches": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "cache_creation_input_token_cost_flex": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "cache_creation_input_token_cost_priority": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "cache_creation_input_token_cost_ultrafast": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "cache_read_input_audio_token_cost": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "cache_read_input_audio_token_cost_batches": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "cache_read_input_audio_token_cost_flex": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "cache_read_input_audio_token_cost_priority": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "cache_read_input_image_token_cost": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "cache_read_input_token_cost": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "cache_read_input_token_cost_above_100k_tokens": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "cache_read_input_token_cost_above_100k_tokens_batches": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "cache_read_input_token_cost_above_200k_tokens": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "cache_read_input_token_cost_above_200k_tokens_batches": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "cache_read_input_token_cost_above_200k_tokens_priority": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "cache_read_input_token_cost_above_272k_tokens": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "cache_read_input_token_cost_above_272k_tokens_batches": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "cache_read_input_token_cost_above_272k_tokens_flex": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "cache_read_input_token_cost_above_272k_tokens_priority": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "cache_read_input_token_cost_above_272k_tokens_ultrafast": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "cache_read_input_token_cost_above_512k_tokens": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "cache_read_input_token_cost_balanced": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "cache_read_input_token_cost_batches": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "cache_read_input_token_cost_flex": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "cache_read_input_token_cost_priority": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "cache_read_input_token_cost_ultrafast": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "citation_cost_per_token": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "client_id": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "client_secret": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "complexity_router_config": {
+   "type": [
+    "null",
+    "object"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "complexity_router_default_model": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "configurable_clientside_auth_params": {
+   "type": [
+    "array",
+    "null"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "cost_per_second": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "custom_llm_provider": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "default_api_key_rpm_limit": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "default_api_key_tpm_limit": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "default_headers": {
+   "type": [
+    "any"
+   ],
+   "source": "litellm.OPENAI_CHAT_COMPLETION_PARAMS"
+  },
+  "deployment_id": {
+   "type": [
+    "any"
+   ],
+   "source": "signature:litellm.completion"
+  },
+  "drop_params": {
+   "type": [
+    "boolean",
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "enable_json_schema_validation": {
+   "type": [
+    "any"
+   ],
+   "source": "signature:litellm.completion"
+  },
+  "extra_headers": {
+   "type": [
+    "any"
+   ],
+   "source": "signature:litellm.completion"
+  },
+  "fireworks_forward_user_id": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "frequency_penalty": {
+   "type": [
+    "any"
+   ],
+   "source": "signature:litellm.completion"
+  },
+  "function_call": {
+   "type": [
+    "any"
+   ],
+   "source": "signature:litellm.completion"
+  },
+  "functions": {
+   "type": [
+    "any"
+   ],
+   "source": "signature:litellm.completion"
+  },
+  "gcs_bucket_name": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "google_maps_grounding_cost_per_query": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "include_server_side_tool_invocations": {
+   "type": [
+    "any"
+   ],
+   "source": "signature:litellm.completion"
+  },
+  "input_cost_per_audio_per_second": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_audio_per_second_above_128k_tokens": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_audio_token": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_audio_token_above_200k_tokens": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_audio_token_above_200k_tokens_batches": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_audio_token_above_200k_tokens_flex": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_audio_token_above_200k_tokens_priority": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_audio_token_batches": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_audio_token_flex": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_audio_token_priority": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_character": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_character_above_128k_tokens": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_image": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_image_above_128k_tokens": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_image_token": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_image_token_batches": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_pixel": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_query": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_second": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_text_message": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_token": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_token_above_100k_tokens": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_token_above_100k_tokens_batches": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_token_above_128k_tokens": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_token_above_200k_tokens": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_token_above_200k_tokens_batches": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_token_above_200k_tokens_flex": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_token_above_200k_tokens_priority": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_token_above_272k_tokens": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_token_above_272k_tokens_batches": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_token_above_272k_tokens_flex": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_token_above_272k_tokens_priority": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_token_above_272k_tokens_ultrafast": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_token_above_512k_tokens": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_token_balanced": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_token_batches": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_token_cache_hit": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_token_flex": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_token_priority": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_token_ultrafast": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_video_per_second": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_video_per_second_above_128k_tokens": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_video_per_second_above_15s_interval": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_video_per_second_above_8s_interval": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_video_token": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "input_cost_per_video_token_batches": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "itpm": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "keepalive_seconds": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "litellm_credential_name": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "litellm_trace_id": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "logit_bias": {
+   "type": [
+    "any"
+   ],
+   "source": "signature:litellm.completion"
+  },
+  "logprobs": {
+   "type": [
+    "any"
+   ],
+   "source": "signature:litellm.completion"
+  },
+  "max_budget": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "max_completion_tokens": {
+   "type": [
+    "any"
+   ],
+   "source": "signature:litellm.completion"
+  },
+  "max_file_size_mb": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "max_retries": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "max_tokens": {
+   "type": [
+    "any"
+   ],
+   "source": "signature:litellm.completion"
+  },
+  "merge_reasoning_content_in_choices": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "milvus_db_name": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "milvus_partition_names": {
+   "type": [
+    "array",
+    "null"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "milvus_text_field": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "mock_response": {
+   "type": [
+    "any"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "modalities": {
+   "type": [
+    "any"
+   ],
+   "source": "signature:litellm.completion"
+  },
+  "model": {
+   "type": [
+    "string"
+   ],
+   "source": "pydantic:LiteLLM_Params"
+  },
+  "model_info": {
+   "type": [
+    "null",
+    "object"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "n": {
+   "type": [
+    "any"
+   ],
+   "source": "signature:litellm.completion"
+  },
+  "ocr_cost_per_credit": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "ocr_cost_per_page": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "ocr_cost_per_page_batches": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "openai_identity_provider_id": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "openai_identity_token_file": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "openai_service_account_id": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "organization": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "otpm": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_audio_per_second": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_audio_token": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_character": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_character_above_128k_tokens": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_image": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_image_1024": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_image_1536": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_image_512": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_image_token": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_image_token_batches": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_image_token_priority": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_pixel": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_reasoning_token": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_reasoning_token_flex": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_reasoning_token_priority": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_second": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_second_1080p": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_second_2k": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_second_480p": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_second_4k": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_second_720p": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_second_768p": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_token": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_token_above_100k_tokens": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_token_above_100k_tokens_batches": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_token_above_128k_tokens": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_token_above_200k_tokens": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_token_above_200k_tokens_batches": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_token_above_200k_tokens_flex": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_token_above_200k_tokens_priority": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_token_above_272k_tokens": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_token_above_272k_tokens_batches": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_token_above_272k_tokens_flex": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_token_above_272k_tokens_priority": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_token_above_272k_tokens_ultrafast": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_token_above_512k_tokens": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_token_balanced": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_token_batches": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_token_flex": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_token_priority": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_token_ultrafast": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_video_per_second": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_cost_per_video_token": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "output_vector_size": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "parallel_tool_calls": {
+   "type": [
+    "any"
+   ],
+   "source": "signature:litellm.completion"
+  },
+  "prediction": {
+   "type": [
+    "any"
+   ],
+   "source": "signature:litellm.completion"
+  },
+  "presence_penalty": {
+   "type": [
+    "any"
+   ],
+   "source": "signature:litellm.completion"
+  },
+  "prompt_cache_key": {
+   "type": [
+    "any"
+   ],
+   "source": "signature:litellm.completion"
+  },
+  "prompt_cache_retention": {
+   "type": [
+    "any"
+   ],
+   "source": "litellm.OPENAI_CHAT_COMPLETION_PARAMS"
+  },
+  "provider_affinity_header": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "quality_router_config": {
+   "type": [
+    "null",
+    "object"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "quality_router_default_model": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "reasoning_effort": {
+   "type": [
+    "any"
+   ],
+   "source": "signature:litellm.completion"
+  },
+  "region_name": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "regional_endpoint_uplift_multiplier": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "regional_processing_uplift_multiplier_eu": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "regional_processing_uplift_multiplier_us": {
+   "type": [
+    "null",
+    "number"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "request_timeout": {
+   "type": [
+    "any"
+   ],
+   "source": "litellm.OPENAI_CHAT_COMPLETION_PARAMS"
+  },
+  "response_format": {
+   "type": [
+    "any"
+   ],
+   "source": "signature:litellm.completion"
+  },
+  "rpm": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "s3_access_key_id": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "s3_bucket_name": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "s3_bucket_owner": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "s3_encryption_key_id": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "s3_endpoint_url": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "s3_output_bucket_name": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "s3_region_name": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "s3_secret_access_key": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "safety_identifier": {
+   "type": [
+    "any"
+   ],
+   "source": "signature:litellm.completion"
+  },
+  "search_context_cost_per_query": {
+   "type": [
+    "null",
+    "object"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "seed": {
+   "type": [
+    "any"
+   ],
+   "source": "signature:litellm.completion"
+  },
+  "service_tier": {
+   "type": [
+    "any"
+   ],
+   "source": "signature:litellm.completion"
+  },
+  "shared_session": {
+   "type": [
+    "any"
+   ],
+   "source": "signature:litellm.completion"
+  },
+  "stop": {
+   "type": [
+    "any"
+   ],
+   "source": "signature:litellm.completion"
+  },
+  "store": {
+   "type": [
+    "any"
+   ],
+   "source": "signature:litellm.completion"
+  },
+  "stream": {
+   "type": [
+    "any"
+   ],
+   "source": "signature:litellm.completion"
+  },
+  "stream_options": {
+   "type": [
+    "any"
+   ],
+   "source": "signature:litellm.completion"
+  },
+  "stream_timeout": {
+   "type": [
+    "null",
+    "number",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "stream_timeout_by_service_tier": {
+   "type": [
+    "null",
+    "object"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "tag_regex": {
+   "type": [
+    "array",
+    "null"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "tags": {
+   "type": [
+    "array",
+    "null"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "temperature": {
+   "type": [
+    "any"
+   ],
+   "source": "signature:litellm.completion"
+  },
+  "tenant_id": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "thinking": {
+   "type": [
+    "any"
+   ],
+   "source": "signature:litellm.completion"
+  },
+  "tiered_pricing": {
+   "type": [
+    "array",
+    "null"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "timeout": {
+   "type": [
+    "any"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "timeout_by_service_tier": {
+   "type": [
+    "null",
+    "object"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "token_exchange_audience": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "token_exchange_endpoint": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "token_exchange_profile": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "token_exchange_scope": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "tool_choice": {
+   "type": [
+    "any"
+   ],
+   "source": "signature:litellm.completion"
+  },
+  "tools": {
+   "type": [
+    "any"
+   ],
+   "source": "signature:litellm.completion"
+  },
+  "top_logprobs": {
+   "type": [
+    "any"
+   ],
+   "source": "signature:litellm.completion"
+  },
+  "top_p": {
+   "type": [
+    "any"
+   ],
+   "source": "signature:litellm.completion"
+  },
+  "tpm": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "use_chat_completions_api": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "use_in_pass_through": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "use_litellm_proxy": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "use_xai_oauth": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "user": {
+   "type": [
+    "any"
+   ],
+   "source": "signature:litellm.completion"
+  },
+  "valkey_embedding_field": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "valkey_host": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "valkey_password": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "valkey_port": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "valkey_ssl": {
+   "type": [
+    "boolean",
+    "null"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "valkey_text_field": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "vector_store_id": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "verbosity": {
+   "type": [
+    "any"
+   ],
+   "source": "signature:litellm.completion"
+  },
+  "vertex_credentials": {
+   "type": [
+    "null",
+    "object",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "vertex_location": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "vertex_project": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "watsonx_region_name": {
+   "type": [
+    "null",
+    "string"
+   ],
+   "source": "pydantic:GenericLiteLLMParams"
+  },
+  "web_search_options": {
+   "type": [
+    "any"
+   ],
+   "source": "signature:litellm.completion"
+  }
+ },
+ "providers": [
+  "a2a",
+  "a2a_agent",
+  "ai21",
+  "ai21_chat",
+  "aiml",
+  "aiohttp_openai",
+  "amazon_nova",
+  "anthropic",
+  "anthropic_text",
+  "apertis",
+  "assemblyai",
+  "auto_router",
+  "aws_polly",
+  "aws_textract",
+  "azure",
+  "azure_ai",
+  "azure_speech",
+  "azure_text",
+  "baseten",
+  "bedrock",
+  "bedrock_mantle",
+  "bespoke",
+  "black_forest_labs",
+  "bytez",
+  "cerebras",
+  "charity_engine",
+  "chatgpt",
+  "chutes",
+  "clarifai",
+  "cloudflare",
+  "codestral",
+  "cognition",
+  "cohere",
+  "cohere_chat",
+  "cometapi",
+  "compactifai",
+  "coralbricks",
+  "cortecs",
+  "cursor",
+  "custom",
+  "custom_openai",
+  "darkbloom",
+  "dashscope",
+  "databricks",
+  "databricks_agent",
+  "datarobot",
+  "deepgram",
+  "deepinfra",
+  "deepseek",
+  "docker_model_runner",
+  "dotprompt",
+  "edenai",
+  "elevenlabs",
+  "empower",
+  "fal_ai",
+  "featherless_ai",
+  "fireworks_ai",
+  "friendliai",
+  "galadriel",
+  "gdc",
+  "gemini",
+  "gigachat",
+  "github",
+  "github_copilot",
+  "gradient_ai",
+  "groq",
+  "helicone",
+  "heroku",
+  "hosted_vllm",
+  "huggingface",
+  "humanloop",
+  "hyperbolic",
+  "inception",
+  "inferenceapis",
+  "infinity",
+  "jina_ai",
+  "lambda_ai",
+  "langflow",
+  "langfuse",
+  "langgraph",
+  "laya",
+  "lemonade",
+  "libertai",
+  "litellm_agent",
+  "litellm_proxy",
+  "llamafile",
+  "lm_studio",
+  "manus",
+  "maritalk",
+  "meta",
+  "meta_llama",
+  "microsoft_365_copilot",
+  "milvus",
+  "minimax",
+  "mistral",
+  "modelscope",
+  "mongodb",
+  "moonshot",
+  "morph",
+  "nadir",
+  "nano-gpt",
+  "nebius",
+  "neosantara",
+  "nlp_cloud",
+  "novita",
+  "nscale",
+  "nvidia_nim",
+  "nvidia_riva",
+  "oci",
+  "ollama",
+  "ollama_chat",
+  "oobabooga",
+  "openai",
+  "openai_like",
+  "openrouter",
+  "ovhcloud",
+  "parasail",
+  "perplexity",
+  "petals",
+  "pg_vector",
+  "pinstripes",
+  "poe",
+  "predibase",
+  "prism",
+  "publicai",
+  "qwen_ai_platform",
+  "qwencloud",
+  "ragflow",
+  "recraft",
+  "reducto",
+  "reka",
+  "replicate",
+  "runwayml",
+  "s3_vectors",
+  "sagemaker",
+  "sagemaker_chat",
+  "sagemaker_nova",
+  "sail",
+  "sambanova",
+  "sap",
+  "scaledown",
+  "scaleway",
+  "scx-ai",
+  "snowflake",
+  "soniox",
+  "stability",
+  "strands_decider",
+  "synthetic",
+  "tencent",
+  "tensormesh",
+  "text-completion-codestral",
+  "text-completion-inception",
+  "text-completion-openai",
+  "together_ai",
+  "topaz",
+  "transcribe",
+  "triton",
+  "typesafe",
+  "v0",
+  "valkey",
+  "vercel_ai_gateway",
+  "vertex_ai",
+  "vertex_ai_beta",
+  "vllm",
+  "volcengine",
+  "voyage",
+  "wandb",
+  "watsonx",
+  "watsonx_text",
+  "xai",
+  "xiaomi_mimo",
+  "xinference",
+  "zai"
+ ],
+ "rules": {
+  "fallback_keys": [
+   "fallbacks",
+   "context_window_fallbacks",
+   "content_policy_fallbacks",
+   "default_fallbacks"
+  ],
+  "misplaced_router_settings": {
+   "health_check_interval": "general_settings",
+   "health_check_concurrency": "general_settings"
+  },
+  "master_key": {
+   "source": "litellm/proxy/auth/master_key_boot_check.py master_key_boot_verdict",
+   "refused_when": [
+    "empty",
+    "publicly_known"
+   ],
+   "publicly_known_sha256": [
+    "88dc28d0f030c55ed4ab77ed8faf098196cb1c05df778539800c9f1243fe6b4b"
+   ],
+   "override_setting": "dangerously_permit_weak_or_unset_master_key",
+   "override_env_var": "LITELLM_DANGEROUSLY_PERMIT_WEAK_OR_UNSET_MASTER_KEY"
+  }
+ }
+}

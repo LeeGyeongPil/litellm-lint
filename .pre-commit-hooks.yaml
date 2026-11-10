@@ -1,0 +1,7 @@
+- id: litellm-lint
+  name: litellm-lint (LiteLLM proxy config)
+  description: Static check of a LiteLLM proxy config.yaml (typos, missing env vars, dangling fallbacks).
+  entry: litellm-lint check
+  language: python
+  files: (^|/)config[^/]*\.ya?ml$
+  pass_filenames: true
