@@ -1,0 +1,29 @@
+# Deliberately broken. Each mistake below was started on litellm 1.108.4 without any
+# warning (only router_settings.num_retires got one log line). All addresses are local.
+model_list:
+  - model_name: gpt-main
+    litellm_params:
+      model: openai/gpt-4o-mini
+      api_key: os.environ/OPENAI_API_KEYY    # typo: the variable is OPENAI_API_KEY
+      api_base: http://127.0.0.1:9/v1
+  - model_name: gpt-main                     # same name twice = load balancing, not an error
+    litellm_params:
+      model: openai/gpt-4o-mini
+      api_key: os.environ/OPENAI_API_KEY
+      api_base: http://127.0.0.1:9/v1
+  - model_name: local-small
+    litellm_params:
+      model: ollama/qwen2.5:0.5b
+      api_bse: http://127.0.0.1:11434        # typo: api_base
+router_settings:
+  routing_strategy: simple-shuffle
+  num_retires: 3                             # typo: num_retries
+  fallbacks:
+    - gpt-main: ["gpt-backup"]               # no model_name "gpt-backup"
+litellm_settings:
+  drop_parms: true                           # typo: drop_params
+  context_window_fallbacks:
+    - local-small: ["nope-model"]            # no model_name "nope-model"
+general_settings:
+  master_key: os.environ/LITELLM_MASTER_KEY
+  maser_key_typo: x                          # not a setting at all

@@ -1,0 +1,31 @@
+# A config litellm-lint accepts with 0 errors and 0 warnings. All addresses are local.
+model_list:
+  - model_name: gpt-main
+    litellm_params:
+      model: openai/gpt-4o-mini
+      api_key: os.environ/OPENAI_API_KEY
+      api_base: http://127.0.0.1:9/v1
+      rpm: 60
+  - model_name: gpt-main                     # same name = load balancing
+    litellm_params:
+      model: openai/gpt-4o-mini
+      api_key: os.environ/OPENAI_API_KEY
+      api_base: http://127.0.0.1:9/v1
+      rpm: 30
+  - model_name: local-small
+    litellm_params:
+      model: ollama/qwen2.5:0.5b
+      api_base: os.environ/OLLAMA_API_BASE
+router_settings:
+  routing_strategy: simple-shuffle
+  num_retries: 3
+  model_group_alias:
+    gpt-4: gpt-main
+  fallbacks:
+    - gpt-main: ["local-small"]
+litellm_settings:
+  drop_params: true
+  context_window_fallbacks:
+    - local-small: ["gpt-main"]
+general_settings:
+  master_key: os.environ/LITELLM_MASTER_KEY
