@@ -240,5 +240,5 @@ def test_several_files_use_included_name_but_main_name_in_summary(tmp_path, caps
     inc = _include_tree(tmp_path)
     _, out = _text(capsys, inc / "config.yaml", inc / "selfbad.yaml")
     assert f"{inc}/models.yaml:4:1: error LL900" in out
-    assert f"{inc}/config.yaml: 1 errors, 0 warnings" in out
-    assert f"{inc}/selfbad.yaml: 1 errors, 0 warnings" in out
+    assert f"{inc}/config.yaml: 1 error, 0 warnings" in out
+    assert f"{inc}/selfbad.yaml: 1 error, 0 warnings" in out

@@ -15,8 +15,13 @@ def header(report: Report) -> str:
     )
 
 
+def _count(n: int, word: str) -> str:
+    """'1 error' but '0 errors' / '2 errors'."""
+    return f"{n} {word}" if n == 1 else f"{n} {word}s"
+
+
 def summary(report: Report) -> str:
-    text = f"{report.errors} errors, {report.warnings} warnings"
+    text = f"{_count(report.errors, 'error')}, {_count(report.warnings, 'warning')}"
     if report.infos:
         text += f", {report.infos} info"
     return text
@@ -41,7 +46,7 @@ def format_text_many(reports: list[Report]) -> str:
         lines.append(f"{report.path}: {summary(report)}")
     errors = sum(r.errors for r in reports)
     warnings = sum(r.warnings for r in reports)
-    lines.append(f"total: {len(reports)} files, {errors} errors, {warnings} warnings")
+    lines.append(f"total: {len(reports)} files, {_count(errors, 'error')}, {_count(warnings, 'warning')}")
     return "\n".join(lines)
 
 
