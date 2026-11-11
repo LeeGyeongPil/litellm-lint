@@ -5,6 +5,11 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-11-11
+
+### Fixed
+- Text summary lines now use singular and plural correctly ("1 error", "1 warning", "0 errors", "2 warnings"), including the per-file lines and the `total:` line for several files. JSON output and exit codes are unchanged.
+
 ## [0.1.1] - 2026-11-11
 
 ### Fixed
@@ -24,9 +29,10 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 - (Fixed in 0.1.1) In text mode, a problem found in an `include`d file is shown with the main config's file name plus the included file's line and column (JSON output has the right file).
 - An `include` loop made of links, or a list used as a top-level mapping key, ends with "internal error" (exit 2) instead of an LL900 diagnostic.
 - When anchors/aliases reuse the same `litellm_params` across many deployments, the same diagnostic is repeated once per deployment.
-- Summary lines are always plural ("1 errors", "1 warnings").
+- (Fixed in 0.1.2) Summary lines were always plural ("1 errors", "1 warnings").
 - `Report.diagnostics` from the Python API is not sorted by line; sort it yourself.
 
-[Unreleased]: https://github.com/LeeGyeongPil/litellm-lint/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/LeeGyeongPil/litellm-lint/compare/v0.1.2...HEAD
+[0.1.2]: https://github.com/LeeGyeongPil/litellm-lint/releases/tag/v0.1.2
 [0.1.1]: https://github.com/LeeGyeongPil/litellm-lint/releases/tag/v0.1.1
 [0.1.0]: https://github.com/LeeGyeongPil/litellm-lint/releases/tag/v0.1.0

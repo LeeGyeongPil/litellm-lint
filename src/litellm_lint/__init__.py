@@ -1,7 +1,7 @@
 """litellm-lint: static checks for LiteLLM proxy ``config.yaml`` (unofficial)."""
 from __future__ import annotations
 
-__version__ = "0.1.1"
+__version__ = "0.1.2"
 
 from .core import check_file
 from .diagnostics import Diagnostic, LintUsageError, Report, Severity
