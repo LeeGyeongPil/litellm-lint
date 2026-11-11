@@ -22,7 +22,7 @@ uv tool install git+https://github.com/LeeGyeongPil/litellm-lint
 litellm-lint --version
 ```
 ```
-litellm-lint 0.1.0 (schema snapshot: litellm 1.108.4)
+litellm-lint 0.1.1 (schema snapshot: litellm 1.108.4)
 ```
 설치 없이 한 번만 돌려 보려면 `uvx --from git+https://github.com/LeeGyeongPil/litellm-lint litellm-lint check config.yaml`. 레포를 받아 직접 쓰려면 `git clone` 후 `uv run litellm-lint ...`. 최소 리눅스 이미지에는 `git` 과 `curl` 이 필요합니다.
 
@@ -33,7 +33,7 @@ git clone https://github.com/LeeGyeongPil/litellm-lint && cd litellm-lint
 uv run litellm-lint check examples/bad_config.yaml --env-file examples/.env.example
 ```
 ```
-litellm-lint 0.1.0 (schema snapshot: litellm 1.108.4, generated 2026-11-10)
+litellm-lint 0.1.1 (schema snapshot: litellm 1.108.4, generated 2026-11-10)
 examples/bad_config.yaml:7:16: error LL201 environment variable 'OPENAI_API_KEYY' not found in: examples/.env.example, process environment (did you mean 'OPENAI_API_KEY'?)
 examples/bad_config.yaml:17:7: warning LL001 unknown key 'api_bse' in litellm_params (did you mean 'api_base'?)
 examples/bad_config.yaml:20:3: error LL001 unknown key 'num_retires' in router_settings (did you mean 'num_retries'?)
@@ -48,7 +48,7 @@ examples/bad_config.yaml:29:3: warning LL001 unknown key 'maser_key_typo' in gen
 uv run litellm-lint check examples/good_config.yaml --env-file examples/.env.example
 ```
 ```
-litellm-lint 0.1.0 (schema snapshot: litellm 1.108.4, generated 2026-11-10)
+litellm-lint 0.1.1 (schema snapshot: litellm 1.108.4, generated 2026-11-10)
 0 errors, 0 warnings
 ```
 ![문제없는 설정의 검사 결과](docs/images/02-good.png)
@@ -78,7 +78,7 @@ litellm-lint --version
 uv run litellm-lint check examples/good_config.yaml examples/bad_config.yaml --env-file examples/.env.example
 ```
 ```
-litellm-lint 0.1.0 (schema snapshot: litellm 1.108.4, generated 2026-11-10)
+litellm-lint 0.1.1 (schema snapshot: litellm 1.108.4, generated 2026-11-10)
 examples/good_config.yaml: 0 errors, 0 warnings
 examples/bad_config.yaml:7:16: error LL201 environment variable 'OPENAI_API_KEYY' not found in: examples/.env.example, process environment (did you mean 'OPENAI_API_KEY'?)
 examples/bad_config.yaml:17:7: warning LL001 unknown key 'api_bse' in litellm_params (did you mean 'api_base'?)
@@ -96,7 +96,7 @@ total: 2 files, 5 errors, 2 warnings
 uv run litellm-lint check examples/bad_config.yaml --no-os-env --ignore LL001
 ```
 ```
-litellm-lint 0.1.0 (schema snapshot: litellm 1.108.4, generated 2026-11-10)
+litellm-lint 0.1.1 (schema snapshot: litellm 1.108.4, generated 2026-11-10)
 examples/bad_config.yaml:7:16: error LL201 environment variable 'OPENAI_API_KEYY' not found in: no sources
 examples/bad_config.yaml:12:16: error LL201 environment variable 'OPENAI_API_KEY' not found in: no sources
 examples/bad_config.yaml:22:18: error LL101 fallback target 'gpt-backup' in router_settings.fallbacks is not a model_name in model_list
@@ -113,7 +113,7 @@ uv run litellm-lint check examples/good_config.yaml --env-file examples/.env.exa
 ```json
 {
   "tool": "litellm-lint",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "snapshot": {
     "litellm_version": "1.108.4",
     "generated_at": "2026-11-10"
@@ -134,7 +134,7 @@ uv run litellm-lint check examples/good_config.yaml --env-file examples/.env.exa
 ```yaml
 repos:
   - repo: https://github.com/LeeGyeongPil/litellm-lint
-    rev: v0.1.0
+    rev: v0.1.1
     hooks:
       - id: litellm-lint
         args: [--no-os-env, --env-file, deploy.env.example]
@@ -238,7 +238,7 @@ git clone https://github.com/LeeGyeongPil/litellm-lint && cd litellm-lint
 uv run pytest
 ```
 ```
-42 passed, 1 skipped in 3.14s
+48 passed, 1 skipped in 3.14s
 ```
 건너뛴 1개는 litellm 이 있어야 하는 스냅숏 전체 생성 테스트입니다. 버그·제안은 이슈로 남겨 주세요. 변경 기록은 [CHANGELOG.md](CHANGELOG.md).
 

@@ -25,7 +25,7 @@ def summary(report: Report) -> str:
 def format_text(report: Report) -> str:
     lines = [header(report)]
     for d in report.sorted():
-        where = report.path
+        where = d.path
         if d.line is not None:
             where += f":{d.line}:{d.col or 1}"
         lines.append(f"{where}: {d.severity.value} {d.code} {d.message}")

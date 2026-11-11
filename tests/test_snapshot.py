@@ -20,12 +20,12 @@ def test_version_display_offline_and_mismatch(monkeypatch, capsys):
         socket.socket().connect(("127.0.0.1", 9))
 
     assert main(["--version"]) == 0
-    assert capsys.readouterr().out.strip() == "litellm-lint 0.1.0 (schema snapshot: litellm 1.108.4)"
+    assert capsys.readouterr().out.strip() == "litellm-lint 0.1.1 (schema snapshot: litellm 1.108.4)"
 
     good = str(EXAMPLES / "good_config.yaml")
     env = str(EXAMPLES / ".env.example")
     main(["check", good, "--env-file", env, "--no-os-env"])
-    assert capsys.readouterr().out.splitlines()[0].startswith("litellm-lint 0.1.0 (schema snapshot: litellm 1.108.4")
+    assert capsys.readouterr().out.splitlines()[0].startswith("litellm-lint 0.1.1 (schema snapshot: litellm 1.108.4")
     main(["check", good, "--env-file", env, "--no-os-env", "--format", "json"])
     assert json.loads(capsys.readouterr().out)["snapshot"]["litellm_version"] == "1.108.4"
 

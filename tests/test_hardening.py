@@ -173,3 +173,72 @@ def test_valid_fallback_shapes_stay_quiet(run):
 def test_non_string_top_level_keys_are_reported(run):
     rep = run("1: 2\nmodel_list: []\n")
     assert ("LL002", "error", "1") in summarize(rep)
+
+
+# --- include location display (0.1.1) ---------------------------------------
+
+
+def _include_tree(tmp_path):
+    inc = tmp_path / "inc"
+    (inc / "sub").mkdir(parents=True)
+    (inc / "config.yaml").write_text("include:\n  - models.yaml\nrouter_settings:\n  num_retries: 2\n")
+    (inc / "models.yaml").write_text("model_list:\n  - model_name: a\n    litellm_params: [\n")
+    (inc / "nested.yaml").write_text("include:\n  - models2.yaml\n")
+    (inc / "models2.yaml").write_text("include:\n  - sub/deeper.yaml\n")
+    (inc / "sub" / "deeper.yaml").write_text("model_list:\n  - model_name: a\n    litellm_params: [\n")
+    (inc / "nestmiss.yaml").write_text("include:\n  - m3.yaml\n")
+    (inc / "m3.yaml").write_text("include:\n  - gone.yaml\n")
+    (inc / "missingcfg.yaml").write_text("include:\n  - gone.yaml\n")
+    (inc / "selfbad.yaml").write_text("model_list:\n  - model_name: a\n    litellm_params: [\n")
+    return inc
+
+
+def _text(capsys, *paths, fmt="text"):
+    code = main(["check", "--no-os-env", "--format", fmt, *map(str, paths)])
+    out = capsys.readouterr().out
+    return code, out
+
+
+def test_text_shows_included_file_for_syntax_error(tmp_path, capsys):
+    inc = _include_tree(tmp_path)
+    code, out = _text(capsys, inc / "config.yaml")
+    assert code == 2
+    assert f"{inc}/models.yaml:4:1: error LL900" in out
+    assert "config.yaml:4:1" not in out
+
+
+def test_text_shows_nested_include_file(tmp_path, capsys):
+    inc = _include_tree(tmp_path)
+    _, out = _text(capsys, inc / "nested.yaml")
+    assert f"{inc}/sub/deeper.yaml:4:1: error LL900" in out
+
+
+def test_text_shows_file_declaring_a_missing_nested_include(tmp_path, capsys):
+    inc = _include_tree(tmp_path)
+    _, out = _text(capsys, inc / "nestmiss.yaml")
+    assert f"{inc}/m3.yaml:1:1: error LL900 included file not found: gone.yaml" in out
+
+
+def test_text_prefix_matches_json_file(tmp_path, capsys):
+    inc = _include_tree(tmp_path)
+    for name in ("config.yaml", "nested.yaml", "nestmiss.yaml"):
+        _, text = _text(capsys, inc / name)
+        _, js = _text(capsys, inc / name, fmt="json")
+        diag = json.loads(js)["diagnostics"][0]
+        assert text.splitlines()[1].startswith(f"{diag['file']}:{diag['line']}:{diag['column']}: ")
+
+
+def test_main_file_locations_are_unchanged(tmp_path, capsys):
+    inc = _include_tree(tmp_path)
+    _, out = _text(capsys, inc / "selfbad.yaml")
+    assert f"{inc}/selfbad.yaml:4:1: error LL900" in out
+    _, out = _text(capsys, inc / "missingcfg.yaml")
+    assert f"{inc}/missingcfg.yaml:1:1: error LL900 included file not found" in out
+
+
+def test_several_files_use_included_name_but_main_name_in_summary(tmp_path, capsys):
+    inc = _include_tree(tmp_path)
+    _, out = _text(capsys, inc / "config.yaml", inc / "selfbad.yaml")
+    assert f"{inc}/models.yaml:4:1: error LL900" in out
+    assert f"{inc}/config.yaml: 1 errors, 0 warnings" in out
+    assert f"{inc}/selfbad.yaml: 1 errors, 0 warnings" in out

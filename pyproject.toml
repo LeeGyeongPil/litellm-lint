@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "litellm-lint"
-version = "0.1.0"
+version = "0.1.1"
 description = "Static linter for LiteLLM proxy config.yaml: typo'd keys, missing env vars, dangling fallbacks and aliases. Unofficial."
 readme = "README.md"
 license = "MIT"
