@@ -1,5 +1,7 @@
 # litellm-lint
 
+**한국어** | [English](README.en.md)
+
 > **English summary** — A static linter for LiteLLM proxy `config.yaml` files (unofficial, not affiliated with LiteLLM). It catches typo'd keys, missing `os.environ/` variables and fallbacks or aliases that point at a model that does not exist, before you deploy. Install: `uv tool install git+https://github.com/LeeGyeongPil/litellm-lint`, run: `litellm-lint check config.yaml`.
 
 LiteLLM 프록시는 설정 파일의 오타를 조용히 넘기는 경우가 많습니다. 이 도구는 프록시를 띄우기 전에 `config.yaml` 을 읽어 그런 실수를 줄 번호와 함께 알려 줍니다. 프록시를 실행하지 않고, 네트워크도 쓰지 않고, 키 값도 읽어 출력하지 않습니다.
