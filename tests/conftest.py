@@ -6,6 +6,7 @@ blocks (only the optional snapshot-generation test needs that).
 """
 from __future__ import annotations
 
+import _lang  # noqa: F401  (pins LITELLM_LINT_LANG=en on import)
 import importlib.abc
 import os
 import socket
