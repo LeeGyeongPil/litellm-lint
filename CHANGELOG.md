@@ -5,6 +5,18 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-11-12
+
+### Added
+- Output language selection, English or Korean, for the whole CLI: `--help`, argparse errors, the text report (diagnostic messages, severity words, summary lines with singular/plural), usage errors and progress lines. Choose it with `--lang en|ko` (accepted before or after the subcommand), the `LITELLM_LINT_LANG` environment variable, or the locale (`LC_ALL`, `LC_MESSAGES`, `LANG`; a value starting with `ko` means Korean). Anything else, or an invalid value, means English. Every message lives in one table, `litellm_lint/i18n.py`, and a test checks that both languages have the same keys and placeholders.
+
+### Changed
+- The default language now follows the environment: with a Korean locale the text output and `--help` are in Korean. Scripts that parse the text output should pass `--lang en` (or set `LITELLM_LINT_LANG=en`), or switch to `--format json`.
+- Text report: nothing else changes in English. `Diagnostic.message` stays English for library users.
+
+### Unchanged
+- `--format json` output (keys, structure, values including `message`), the `schema` command's JSON Schema, rule IDs and exit codes are identical in both languages.
+
 ## [0.1.2] - 2026-11-11
 
 ### Fixed
@@ -32,7 +44,8 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 - (Fixed in 0.1.2) Summary lines were always plural ("1 errors", "1 warnings").
 - `Report.diagnostics` from the Python API is not sorted by line; sort it yourself.
 
-[Unreleased]: https://github.com/LeeGyeongPil/litellm-lint/compare/v0.1.2...HEAD
+[Unreleased]: https://github.com/LeeGyeongPil/litellm-lint/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/LeeGyeongPil/litellm-lint/releases/tag/v0.2.0
 [0.1.2]: https://github.com/LeeGyeongPil/litellm-lint/releases/tag/v0.1.2
 [0.1.1]: https://github.com/LeeGyeongPil/litellm-lint/releases/tag/v0.1.1
 [0.1.0]: https://github.com/LeeGyeongPil/litellm-lint/releases/tag/v0.1.0

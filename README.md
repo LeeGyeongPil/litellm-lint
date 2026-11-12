@@ -22,7 +22,7 @@ uv tool install git+https://github.com/LeeGyeongPil/litellm-lint
 litellm-lint --version
 ```
 ```
-litellm-lint 0.1.2 (schema snapshot: litellm 1.108.4)
+litellm-lint 0.2.0 (schema snapshot: litellm 1.108.4)
 ```
 To try it once without installing: `uvx --from git+https://github.com/LeeGyeongPil/litellm-lint litellm-lint check config.yaml`. To use it from a downloaded repo, `git clone` and then `uv run litellm-lint ...`. A minimal Linux image needs `git` and `curl`.
 
@@ -33,7 +33,7 @@ git clone https://github.com/LeeGyeongPil/litellm-lint && cd litellm-lint
 uv run litellm-lint check examples/bad_config.yaml --env-file examples/.env.example
 ```
 ```
-litellm-lint 0.1.2 (schema snapshot: litellm 1.108.4, generated 2026-11-10)
+litellm-lint 0.2.0 (schema snapshot: litellm 1.108.4, generated 2026-11-10)
 examples/bad_config.yaml:7:16: error LL201 environment variable 'OPENAI_API_KEYY' not found in: examples/.env.example, process environment (did you mean 'OPENAI_API_KEY'?)
 examples/bad_config.yaml:17:7: warning LL001 unknown key 'api_bse' in litellm_params (did you mean 'api_base'?)
 examples/bad_config.yaml:20:3: error LL001 unknown key 'num_retires' in router_settings (did you mean 'num_retries'?)
@@ -48,7 +48,7 @@ Each line is `file:line:column: severity rule-code message`. The exit code is 1 
 uv run litellm-lint check examples/good_config.yaml --env-file examples/.env.example
 ```
 ```
-litellm-lint 0.1.2 (schema snapshot: litellm 1.108.4, generated 2026-11-10)
+litellm-lint 0.2.0 (schema snapshot: litellm 1.108.4, generated 2026-11-10)
 0 errors, 0 warnings
 ```
 ![Check result of a problem-free configuration](docs/images/02-good.png)
@@ -56,10 +56,27 @@ litellm-lint 0.1.2 (schema snapshot: litellm 1.108.4, generated 2026-11-10)
 
 ## Usage
 ```
-litellm-lint check [--env-file PATH] [--no-os-env] [--strict] [--ignore CODES] [--format {text,json}] config [config ...]
-litellm-lint schema [-o PATH]
+litellm-lint check [--env-file PATH] [--no-os-env] [--strict] [--ignore CODES] [--format {text,json}] [--lang {en,ko}] config [config ...]
+litellm-lint schema [-o PATH] [--lang {en,ko}]
 litellm-lint --version
 ```
+
+**Choosing the output language.** `--help`, error messages, findings and summary lines are shown in English or Korean. The first one that applies wins:
+
+1. `--lang en|ko` (accepted before or after the subcommand: `litellm-lint --lang ko check ...` or `litellm-lint check --lang ko ...`)
+2. the `LITELLM_LINT_LANG` environment variable (`en` or `ko`)
+3. the locale: `LC_ALL`, `LC_MESSAGES`, then `LANG`; a value starting with `ko` (for example `ko_KR.UTF-8`) means Korean
+4. otherwise English. An invalid `--lang` value stops the run with exit code 2; an invalid value in `LITELLM_LINT_LANG` is ignored and the next step is used.
+
+```bash
+uv run litellm-lint --lang ko check examples/good_config.yaml --env-file examples/.env.example
+LITELLM_LINT_LANG=ko uv run litellm-lint check examples/good_config.yaml --env-file examples/.env.example
+```
+```
+litellm-lint 0.2.0 (스키마 스냅숏: litellm 1.108.4, 생성일 2026-11-10)
+오류 0건, 경고 0건
+```
+Only the text output is translated. `--format json`, the `schema` export, rule codes and exit codes are identical in both languages, so scripts that read the output should use `--format json` or pass `--lang en`. The Python API (`Diagnostic.message`) stays English.
 
 | Command / option | What it does | Example |
 |---|---|---|
@@ -78,7 +95,7 @@ When you give several files, the header appears once, each file gets its finding
 uv run litellm-lint check examples/good_config.yaml examples/bad_config.yaml --env-file examples/.env.example
 ```
 ```
-litellm-lint 0.1.2 (schema snapshot: litellm 1.108.4, generated 2026-11-10)
+litellm-lint 0.2.0 (schema snapshot: litellm 1.108.4, generated 2026-11-10)
 examples/good_config.yaml: 0 errors, 0 warnings
 examples/bad_config.yaml:7:16: error LL201 environment variable 'OPENAI_API_KEYY' not found in: examples/.env.example, process environment (did you mean 'OPENAI_API_KEY'?)
 examples/bad_config.yaml:17:7: warning LL001 unknown key 'api_bse' in litellm_params (did you mean 'api_base'?)
@@ -96,7 +113,7 @@ total: 2 files, 5 errors, 2 warnings
 uv run litellm-lint check examples/bad_config.yaml --no-os-env --ignore LL001
 ```
 ```
-litellm-lint 0.1.2 (schema snapshot: litellm 1.108.4, generated 2026-11-10)
+litellm-lint 0.2.0 (schema snapshot: litellm 1.108.4, generated 2026-11-10)
 examples/bad_config.yaml:7:16: error LL201 environment variable 'OPENAI_API_KEYY' not found in: no sources
 examples/bad_config.yaml:12:16: error LL201 environment variable 'OPENAI_API_KEY' not found in: no sources
 examples/bad_config.yaml:22:18: error LL101 fallback target 'gpt-backup' in router_settings.fallbacks is not a model_name in model_list
@@ -113,7 +130,7 @@ uv run litellm-lint check examples/good_config.yaml --env-file examples/.env.exa
 ```json
 {
   "tool": "litellm-lint",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "snapshot": {
     "litellm_version": "1.108.4",
     "generated_at": "2026-11-10"
@@ -134,7 +151,7 @@ uv run litellm-lint check examples/good_config.yaml --env-file examples/.env.exa
 ```yaml
 repos:
   - repo: https://github.com/LeeGyeongPil/litellm-lint
-    rev: v0.1.2
+    rev: v0.2.0
     hooks:
       - id: litellm-lint
         args: [--no-os-env, --env-file, deploy.env.example]
@@ -240,7 +257,7 @@ git clone https://github.com/LeeGyeongPil/litellm-lint && cd litellm-lint
 uv run pytest
 ```
 ```
-60 passed, 1 skipped in 4.41s
+98 passed, 1 skipped in 3.59s
 ```
 The 1 skipped test is the full snapshot-generation test, which needs litellm. Please leave bugs and suggestions as issues. Change history is in [CHANGELOG.md](CHANGELOG.md).
 

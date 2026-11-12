@@ -6,7 +6,7 @@ LiteLLM 프록시는 설정 파일의 오타를 조용히 넘기는 경우가 �
 
 > 비공식 도구입니다. 검사 기준은 **litellm 1.108.4** 에서 뽑아 둔 스냅숏입니다(아래 "지원 버전과 한계").
 
-![잘못된 설정을 검사한 결과](docs/images/01-hero.png)
+![잘못된 설정을 검사한 결과](docs/images/01-hero.ko.png)
 *오타·없는 환경 변수 5건과 끊어진 폴백 2건을 줄 번호와 함께 보여 주는 `litellm-lint check` 출력*
 
 ## 이런 분께
@@ -19,10 +19,10 @@ LiteLLM 프록시는 설정 파일의 오타를 조용히 넘기는 경우가 �
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh        # uv 가 없다면 (Python 3.10 이상 필요)
 uv tool install git+https://github.com/LeeGyeongPil/litellm-lint
-litellm-lint --version
+litellm-lint --lang ko --version
 ```
 ```
-litellm-lint 0.1.2 (schema snapshot: litellm 1.108.4)
+litellm-lint 0.2.0 (스키마 스냅숏: litellm 1.108.4)
 ```
 설치 없이 한 번만 돌려 보려면 `uvx --from git+https://github.com/LeeGyeongPil/litellm-lint litellm-lint check config.yaml`. 레포를 받아 직접 쓰려면 `git clone` 후 `uv run litellm-lint ...`. 최소 리눅스 이미지에는 `git` 과 `curl` 이 필요합니다.
 
@@ -30,36 +30,53 @@ litellm-lint 0.1.2 (schema snapshot: litellm 1.108.4)
 레포의 예제로 바로 해 볼 수 있습니다.
 ```bash
 git clone https://github.com/LeeGyeongPil/litellm-lint && cd litellm-lint
-uv run litellm-lint check examples/bad_config.yaml --env-file examples/.env.example
+uv run litellm-lint --lang ko check examples/bad_config.yaml --env-file examples/.env.example
 ```
 ```
-litellm-lint 0.1.2 (schema snapshot: litellm 1.108.4, generated 2026-11-10)
-examples/bad_config.yaml:7:16: error LL201 environment variable 'OPENAI_API_KEYY' not found in: examples/.env.example, process environment (did you mean 'OPENAI_API_KEY'?)
-examples/bad_config.yaml:17:7: warning LL001 unknown key 'api_bse' in litellm_params (did you mean 'api_base'?)
-examples/bad_config.yaml:20:3: error LL001 unknown key 'num_retires' in router_settings (did you mean 'num_retries'?)
-examples/bad_config.yaml:22:18: error LL101 fallback target 'gpt-backup' in router_settings.fallbacks is not a model_name in model_list
-examples/bad_config.yaml:24:3: error LL001 unknown key 'drop_parms' in litellm_settings (did you mean 'drop_params'?)
-examples/bad_config.yaml:26:21: error LL101 fallback target 'nope-model' in litellm_settings.context_window_fallbacks is not a model_name in model_list
-examples/bad_config.yaml:29:3: warning LL001 unknown key 'maser_key_typo' in general_settings: not in the litellm 1.108.4 snapshot (may be a newer setting, or a typo)
-5 errors, 2 warnings
+litellm-lint 0.2.0 (스키마 스냅숏: litellm 1.108.4, 생성일 2026-11-10)
+examples/bad_config.yaml:7:16: 오류 LL201 환경변수 'OPENAI_API_KEYY' 을(를) 다음에서 찾을 수 없습니다: examples/.env.example, 프로세스 환경변수 ('OPENAI_API_KEY' 을(를) 말씀하신 것입니까?)
+examples/bad_config.yaml:17:7: 경고 LL001 litellm_params 에 알 수 없는 키 'api_bse' 가 있습니다 ('api_base' 을(를) 말씀하신 것입니까?)
+examples/bad_config.yaml:20:3: 오류 LL001 router_settings 에 알 수 없는 키 'num_retires' 가 있습니다 ('num_retries' 을(를) 말씀하신 것입니까?)
+examples/bad_config.yaml:22:18: 오류 LL101 router_settings.fallbacks 의 폴백 대상 'gpt-backup' 이(가) model_list 의 model_name 에 없습니다
+examples/bad_config.yaml:24:3: 오류 LL001 litellm_settings 에 알 수 없는 키 'drop_parms' 가 있습니다 ('drop_params' 을(를) 말씀하신 것입니까?)
+examples/bad_config.yaml:26:21: 오류 LL101 litellm_settings.context_window_fallbacks 의 폴백 대상 'nope-model' 이(가) model_list 의 model_name 에 없습니다
+examples/bad_config.yaml:29:3: 경고 LL001 general_settings 에 알 수 없는 키 'maser_key_typo' 가 있습니다: litellm 1.108.4 스냅숏에 없습니다 (더 새로운 설정이거나 오타일 수 있습니다)
+오류 5건, 경고 2건
 ```
 각 줄은 `파일:줄:열: 심각도 규칙코드 메시지` 입니다. 종료 코드는 오류가 있으면 1 입니다. 문제없는 설정은 이렇게 끝납니다.
 ```bash
-uv run litellm-lint check examples/good_config.yaml --env-file examples/.env.example
+uv run litellm-lint --lang ko check examples/good_config.yaml --env-file examples/.env.example
 ```
 ```
-litellm-lint 0.1.2 (schema snapshot: litellm 1.108.4, generated 2026-11-10)
-0 errors, 0 warnings
+litellm-lint 0.2.0 (스키마 스냅숏: litellm 1.108.4, 생성일 2026-11-10)
+오류 0건, 경고 0건
 ```
-![문제없는 설정의 검사 결과](docs/images/02-good.png)
+![문제없는 설정의 검사 결과](docs/images/02-good.ko.png)
 *오류도 경고도 없으면 종료 코드 0*
 
 ## 사용법
 ```
-litellm-lint check [--env-file PATH] [--no-os-env] [--strict] [--ignore CODES] [--format {text,json}] config [config ...]
-litellm-lint schema [-o PATH]
+litellm-lint check [--env-file PATH] [--no-os-env] [--strict] [--ignore CODES] [--format {text,json}] [--lang {en,ko}] config [config ...]
+litellm-lint schema [-o PATH] [--lang {en,ko}]
 litellm-lint --version
 ```
+
+**출력 언어 고르기.** `--help`, 오류 메시지, 지적, 요약 줄을 영어 또는 한국어로 보여 줍니다. 아래 순서에서 먼저 해당하는 것이 이깁니다.
+
+1. `--lang en|ko` (하위 명령 앞뒤 어디서나 가능: `litellm-lint --lang ko check ...` 또는 `litellm-lint check --lang ko ...`)
+2. 환경 변수 `LITELLM_LINT_LANG` (`en` 또는 `ko`)
+3. 로캘: `LC_ALL`, `LC_MESSAGES`, `LANG` 순서로 보며, `ko` 로 시작하는 값(예: `ko_KR.UTF-8`)이면 한국어
+4. 그 밖에는 영어. 잘못된 `--lang` 값은 종료 코드 2 로 중단하고, 환경 변수 `LITELLM_LINT_LANG` 의 잘못된 값은 무시하고 다음 단계를 봅니다.
+
+```bash
+uv run litellm-lint --lang ko check examples/good_config.yaml --env-file examples/.env.example
+LITELLM_LINT_LANG=ko uv run litellm-lint check examples/good_config.yaml --env-file examples/.env.example
+```
+```
+litellm-lint 0.2.0 (스키마 스냅숏: litellm 1.108.4, 생성일 2026-11-10)
+오류 0건, 경고 0건
+```
+텍스트 출력만 번역됩니다. `--format json`, `schema` 내보내기, 규칙 코드, 종료 코드는 두 언어에서 똑같으므로, 출력을 읽는 스크립트는 `--format json` 을 쓰거나 `--lang en` 을 줍니다. Python API(`Diagnostic.message`)는 영어 그대로입니다.
 
 | 명령·옵션 | 하는 일 | 예 |
 |---|---|---|
@@ -75,34 +92,34 @@ litellm-lint --version
 
 파일을 여러 개 주면 헤더는 한 번만 나오고, 파일마다 지적과 요약 줄, 마지막에 `total` 줄이 붙습니다.
 ```bash
-uv run litellm-lint check examples/good_config.yaml examples/bad_config.yaml --env-file examples/.env.example
+uv run litellm-lint --lang ko check examples/good_config.yaml examples/bad_config.yaml --env-file examples/.env.example
 ```
 ```
-litellm-lint 0.1.2 (schema snapshot: litellm 1.108.4, generated 2026-11-10)
-examples/good_config.yaml: 0 errors, 0 warnings
-examples/bad_config.yaml:7:16: error LL201 environment variable 'OPENAI_API_KEYY' not found in: examples/.env.example, process environment (did you mean 'OPENAI_API_KEY'?)
-examples/bad_config.yaml:17:7: warning LL001 unknown key 'api_bse' in litellm_params (did you mean 'api_base'?)
-examples/bad_config.yaml:20:3: error LL001 unknown key 'num_retires' in router_settings (did you mean 'num_retries'?)
-examples/bad_config.yaml:22:18: error LL101 fallback target 'gpt-backup' in router_settings.fallbacks is not a model_name in model_list
-examples/bad_config.yaml:24:3: error LL001 unknown key 'drop_parms' in litellm_settings (did you mean 'drop_params'?)
-examples/bad_config.yaml:26:21: error LL101 fallback target 'nope-model' in litellm_settings.context_window_fallbacks is not a model_name in model_list
-examples/bad_config.yaml:29:3: warning LL001 unknown key 'maser_key_typo' in general_settings: not in the litellm 1.108.4 snapshot (may be a newer setting, or a typo)
-examples/bad_config.yaml: 5 errors, 2 warnings
-total: 2 files, 5 errors, 2 warnings
+litellm-lint 0.2.0 (스키마 스냅숏: litellm 1.108.4, 생성일 2026-11-10)
+examples/good_config.yaml: 오류 0건, 경고 0건
+examples/bad_config.yaml:7:16: 오류 LL201 환경변수 'OPENAI_API_KEYY' 을(를) 다음에서 찾을 수 없습니다: examples/.env.example, 프로세스 환경변수 ('OPENAI_API_KEY' 을(를) 말씀하신 것입니까?)
+examples/bad_config.yaml:17:7: 경고 LL001 litellm_params 에 알 수 없는 키 'api_bse' 가 있습니다 ('api_base' 을(를) 말씀하신 것입니까?)
+examples/bad_config.yaml:20:3: 오류 LL001 router_settings 에 알 수 없는 키 'num_retires' 가 있습니다 ('num_retries' 을(를) 말씀하신 것입니까?)
+examples/bad_config.yaml:22:18: 오류 LL101 router_settings.fallbacks 의 폴백 대상 'gpt-backup' 이(가) model_list 의 model_name 에 없습니다
+examples/bad_config.yaml:24:3: 오류 LL001 litellm_settings 에 알 수 없는 키 'drop_parms' 가 있습니다 ('drop_params' 을(를) 말씀하신 것입니까?)
+examples/bad_config.yaml:26:21: 오류 LL101 litellm_settings.context_window_fallbacks 의 폴백 대상 'nope-model' 이(가) model_list 의 model_name 에 없습니다
+examples/bad_config.yaml:29:3: 경고 LL001 general_settings 에 알 수 없는 키 'maser_key_typo' 가 있습니다: litellm 1.108.4 스냅숏에 없습니다 (더 새로운 설정이거나 오타일 수 있습니다)
+examples/bad_config.yaml: 오류 5건, 경고 2건
+합계: 파일 2개, 오류 5건, 경고 2건
 ```
 
 **시나리오 1 — 배포 파이프라인에서 막기.** `.env` 가 없는 CI 에서는 `--no-os-env --env-file deploy.env.example` 처럼 "배포 환경에 있어야 할 변수 이름 목록"을 기준으로 삼습니다. 아래는 `--ignore LL001` 로 오타 규칙을 끄고 환경 변수를 하나도 주지 않은 경우입니다.
 ```bash
-uv run litellm-lint check examples/bad_config.yaml --no-os-env --ignore LL001
+uv run litellm-lint --lang ko check examples/bad_config.yaml --no-os-env --ignore LL001
 ```
 ```
-litellm-lint 0.1.2 (schema snapshot: litellm 1.108.4, generated 2026-11-10)
-examples/bad_config.yaml:7:16: error LL201 environment variable 'OPENAI_API_KEYY' not found in: no sources
-examples/bad_config.yaml:12:16: error LL201 environment variable 'OPENAI_API_KEY' not found in: no sources
-examples/bad_config.yaml:22:18: error LL101 fallback target 'gpt-backup' in router_settings.fallbacks is not a model_name in model_list
-examples/bad_config.yaml:26:21: error LL101 fallback target 'nope-model' in litellm_settings.context_window_fallbacks is not a model_name in model_list
-examples/bad_config.yaml:28:15: error LL201 environment variable 'LITELLM_MASTER_KEY' not found in: no sources
-5 errors, 0 warnings
+litellm-lint 0.2.0 (스키마 스냅숏: litellm 1.108.4, 생성일 2026-11-10)
+examples/bad_config.yaml:7:16: 오류 LL201 환경변수 'OPENAI_API_KEYY' 을(를) 다음에서 찾을 수 없습니다: 확인할 출처 없음
+examples/bad_config.yaml:12:16: 오류 LL201 환경변수 'OPENAI_API_KEY' 을(를) 다음에서 찾을 수 없습니다: 확인할 출처 없음
+examples/bad_config.yaml:22:18: 오류 LL101 router_settings.fallbacks 의 폴백 대상 'gpt-backup' 이(가) model_list 의 model_name 에 없습니다
+examples/bad_config.yaml:26:21: 오류 LL101 litellm_settings.context_window_fallbacks 의 폴백 대상 'nope-model' 이(가) model_list 의 model_name 에 없습니다
+examples/bad_config.yaml:28:15: 오류 LL201 환경변수 'LITELLM_MASTER_KEY' 을(를) 다음에서 찾을 수 없습니다: 확인할 출처 없음
+오류 5건, 경고 0건
 ```
 정의된 환경 변수가 하나도 없으니 `os.environ/` 로 참조한 이름 3곳이 모두 LL201 로 잡힙니다.
 
@@ -113,7 +130,7 @@ uv run litellm-lint check examples/good_config.yaml --env-file examples/.env.exa
 ```json
 {
   "tool": "litellm-lint",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "snapshot": {
     "litellm_version": "1.108.4",
     "generated_at": "2026-11-10"
@@ -134,7 +151,7 @@ uv run litellm-lint check examples/good_config.yaml --env-file examples/.env.exa
 ```yaml
 repos:
   - repo: https://github.com/LeeGyeongPil/litellm-lint
-    rev: v0.1.2
+    rev: v0.2.0
     hooks:
       - id: litellm-lint
         args: [--no-os-env, --env-file, deploy.env.example]
@@ -182,7 +199,7 @@ for d in sorted(report.diagnostics, key=lambda d: (d.line or 0, d.code)):
 
 LL301 은 **약한 키 전반이 아니라 두 경우만** 잡습니다. litellm 1.108.4 의 소스(`master_key_boot_check.py`)는 길이·복잡도 기준 없이 "비어 있음"과 "공개된 예시 키의 SHA-256 해시와 일치"만 거부하기 때문에, 그 기준에 맞췄습니다. `sk-1234` 가 아닌 짧은 키는 이 도구가 지적하지 않습니다.
 
-자세한 규칙 설명은 [docs/rules.md](docs/rules.md)(영어) 를 보세요.
+자세한 규칙 설명은 [docs/rules.md](docs/rules.md)(영어) 를 봅니다.
 
 ## 동작 원리
 ```mermaid
@@ -225,7 +242,7 @@ uv run --isolated --python 3.12 --with "litellm[proxy]==<버전>" python scripts
 ## 자주 겪는 문제
 | 증상 | 원인 | 해결 |
 |---|---|---|
-| `LL201 ... not found in: no sources` | `--no-os-env` 를 줬는데 `--env-file` 이 없음 | `--env-file` 로 이름 목록 파일을 주거나 `--no-os-env` 를 뺌 |
+| `LL201 ... 확인할 출처 없음` | `--no-os-env` 를 줬는데 `--env-file` 이 없음 | `--env-file` 로 이름 목록 파일을 주거나 `--no-os-env` 를 뺌 |
 | 새 설정 키가 `LL001 warning` 으로 나옴 | 스냅숏(1.108.4)보다 새 버전의 키 | 스냅숏을 다시 만들거나 `--ignore LL001` |
 | 종료 코드 2 와 `LL900` | YAML 구문 오류, 없거나 깨진 `include` 파일, 너무 깊거나 큰 입력 | 보고된 줄:열 근처의 들여쓰기·따옴표, `include` 경로 확인 |
 | pre-commit 에서 `LL201` 로 커밋이 막힘 | 개발자 셸에 해당 환경 변수가 없음 | 훅 `args` 에 `--no-os-env --env-file deploy.env.example` 추가 |
@@ -238,9 +255,9 @@ git clone https://github.com/LeeGyeongPil/litellm-lint && cd litellm-lint
 uv run pytest
 ```
 ```
-60 passed, 1 skipped in 4.41s
+98 passed, 1 skipped in 3.59s
 ```
-건너뛴 1개는 litellm 이 있어야 하는 스냅숏 전체 생성 테스트입니다. 버그·제안은 이슈로 남겨 주세요. 변경 기록은 [CHANGELOG.md](CHANGELOG.md).
+건너뛴 1개는 litellm 이 있어야 하는 스냅숏 전체 생성 테스트입니다. 버그·제안은 이슈로 남겨 주시기 바랍니다. 변경 기록은 [CHANGELOG.md](CHANGELOG.md).
 
 ## 라이선스
 MIT. litellm 은 BerriAI 의 별도 프로젝트이며, 이 도구는 litellm 에서 설정 키 이름 목록만 추출해 내장합니다(litellm 코드는 포함하지 않음).
