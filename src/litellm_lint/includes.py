@@ -12,6 +12,7 @@ from pathlib import Path
 from typing import Any
 
 from .diagnostics import LintUsageError
+from .i18n import msg
 from .loader import _problem, parse_yaml_file
 
 INCLUDE_KEY = "include"
@@ -53,26 +54,23 @@ def collect_included_models(config: Any, root: Path) -> list[Any]:
         try:
             resolved = target.resolve()
         except OSError:
-            raise _problem("included file cannot be resolved", shown) from None
+            raise _problem(msg("inc_unresolvable"), shown) from None
         if resolved in seen:
             continue  # the proxy reads each file once
         if len(seen) > MAX_INCLUDED_FILES:
-            raise _problem(f"too many included files (limit {MAX_INCLUDED_FILES}); is the include chain endless?", root)
+            raise _problem(msg("inc_too_many", limit=MAX_INCLUDED_FILES), root)
         seen.add(resolved)
         if not target.is_file():
-            raise _problem(
-                f"included file not found: {entry} (the proxy would fail to start; paths are relative to the file that lists them)",
-                declared_in,
-            )
+            raise _problem(msg("inc_not_found", entry=entry), declared_in)
         try:
             data = parse_yaml_file(target)
         except LintUsageError:
-            raise _problem("included file cannot be read as UTF-8 text", shown) from None
+            raise _problem(msg("inc_unreadable"), shown) from None
         if not isinstance(data, dict):
-            raise _problem("included file must be a mapping (key: value pairs)", shown)
+            raise _problem(msg("inc_not_mapping"), shown)
         nested = include_entries(data)
         if nested is None:
-            raise _problem("'include' in an included file must be a list of file paths", shown)
+            raise _problem(msg("inc_bad_include"), shown)
         listed = data.get("model_list")
         if isinstance(listed, list):
             models.extend(listed)

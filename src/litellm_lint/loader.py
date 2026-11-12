@@ -10,6 +10,7 @@ from ruamel.yaml.parser import ParserError
 from ruamel.yaml.scanner import ScannerError
 
 from .diagnostics import Diagnostic, LintUsageError, Severity
+from .i18n import msg
 
 Pos = tuple[int | None, int | None]
 
@@ -39,11 +40,8 @@ def check_complexity(root: Any, path: Path | str) -> None:
     steps. Count the expanded size once (memoised per shared node) and stop at the limits.
     Raises ``YamlProblem`` (LL900). Self-referencing aliases count as one node.
     """
-    too_deep = f"nesting too deep: the document is nested more than {MAX_DEPTH} levels"
-    too_big = (
-        f"too many alias expansions: the document expands to more than {MAX_EXPANDED_NODES} nodes "
-        "(possible YAML alias bomb)"
-    )
+    too_deep = msg("yaml_too_deep", limit=MAX_DEPTH)
+    too_big = msg("yaml_too_big", limit=MAX_EXPANDED_NODES)
     memo: dict[int, tuple[int, int]] = {}  # id(node) -> (expanded size, height)
     on_path: set[int] = set()
     # frame: [node, children iterator, size so far, height so far]
@@ -98,14 +96,14 @@ def parse_yaml_file(path: Path, *, label: str | None = None) -> Any:
     try:
         text = path.read_text(encoding="utf-8")
     except FileNotFoundError:
-        raise LintUsageError(f"config file not found: {path}. Check the path or run from the project directory.") from None
+        raise LintUsageError(msg("config_not_found", path=path)) from None
     except (OSError, UnicodeDecodeError) as exc:
-        raise LintUsageError(f"cannot read {path} as UTF-8 text ({type(exc).__name__}).") from None
+        raise LintUsageError(msg("config_unreadable", path=path, name=type(exc).__name__)) from None
     yaml = YAML(typ="rt")
     try:
         data = yaml.load(text)
     except RecursionError:
-        raise _problem(f"nesting too deep: the parser gave up (limit {MAX_DEPTH} levels)", shown) from None
+        raise _problem(msg("yaml_parser_gave_up", limit=MAX_DEPTH), shown) from None
     except MarkedYAMLError as exc:
         mark = exc.problem_mark or exc.context_mark
         line = mark.line + 1 if mark is not None else None
@@ -115,11 +113,11 @@ def parse_yaml_file(path: Path, *, label: str | None = None) -> Any:
         if isinstance(exc, (ScannerError, ParserError)) and exc.problem:
             what = _fixed_problem(exc.problem)
         elif "duplicate" in type(exc).__name__.lower():
-            what = "duplicate key (the proxy would silently keep only the last one)"
+            what = msg("yaml_duplicate_key")
         else:
-            what = "the YAML construct is not valid"
+            what = msg("yaml_invalid_construct")
         raise YamlProblem(
-            Diagnostic("LL900", Severity.ERROR, f"cannot parse YAML: {what}", shown, line, col)
+            Diagnostic("LL900", Severity.ERROR, msg("yaml_cannot_parse", what=what), shown, line, col)
         ) from None
     check_complexity(data, shown)
     return data
@@ -129,7 +127,7 @@ def load_config(path: Path, *, label: str | None = None) -> Any:
     """Read ``path`` into ruamel round-trip containers (they remember line/column)."""
     data = parse_yaml_file(path, label=label)
     if not isinstance(data, dict):
-        raise _problem("the config root must be a mapping (key: value pairs)", label or str(path))
+        raise _problem(msg("root_not_mapping"), label or str(path))
     return data
 
 

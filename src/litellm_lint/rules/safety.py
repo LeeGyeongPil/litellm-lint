@@ -8,6 +8,7 @@ import hashlib
 
 from ..context import Context
 from ..diagnostics import Diagnostic, Severity
+from ..i18n import msg
 from ..loader import iter_scalars, value_pos
 
 _EXACT = {"api_key", "master_key", "salt_key", "password", "secret", "token"}
@@ -31,17 +32,16 @@ def check(ctx: Context) -> list[Diagnostic]:
         digest = hashlib.sha256(master.encode("utf-8")).hexdigest()
         reason = None
         if not master.strip():
-            reason = "is empty"
+            reason = msg("reason_empty")
         elif digest in rule["publicly_known_sha256"]:
-            reason = "is a publicly known example key"
+            reason = msg("reason_known")
         if reason:
             weak_key_path = "general_settings.master_key"
             out.append(
                 ctx.diag(
                     "LL301",
                     Severity.WARNING if weak_ok else Severity.ERROR,
-                    f"general_settings.master_key {reason}; the proxy refuses to start with it "
-                    f"unless {rule['override_setting']} is true. Use os.environ/LITELLM_MASTER_KEY with a long random value",
+                    msg("ll301", reason=reason, override=rule["override_setting"]),
                     value_pos(general, "master_key"),
                     "os.environ/LITELLM_MASTER_KEY",
                     "general_settings.master_key",
@@ -58,7 +58,7 @@ def check(ctx: Context) -> list[Diagnostic]:
                 ctx.diag(
                     "LL202",
                     Severity.WARNING,
-                    f"'{key_path}' holds a literal secret (value not shown); use os.environ/NAME and keep the value outside the file",
+                    msg("ll202", path=key_path),
                     pos,
                     None,
                     key_path,

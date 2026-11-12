@@ -5,6 +5,7 @@ import json
 
 from ..context import Context
 from ..diagnostics import Diagnostic, Severity
+from ..i18n import msg
 from ..loader import item_pos, to_plain, value_pos
 from ..suggest import closest
 
@@ -28,8 +29,7 @@ def check(ctx: Context) -> list[Diagnostic]:
                 ctx.diag(
                     "LL401",
                     Severity.WARNING,
-                    f"model_list[{i}] repeats model_list[{first_seen[fingerprint]}] exactly (same model_name and litellm_params); "
-                    "it only doubles that deployment's share of traffic",
+                    msg("ll401", i=i, first=first_seen[fingerprint]),
                     item_pos(models, i),
                     None,
                     f"model_list[{i}]",
@@ -54,7 +54,7 @@ def check(ctx: Context) -> list[Diagnostic]:
                         ctx.diag(
                             "LL402",
                             Severity.WARNING,
-                            f"provider prefix '{prefix}' in {path} is not a litellm provider (did you mean '{hint}'?)",
+                            msg("ll402_hint", prefix=prefix, path=path, hint=hint),
                             value_pos(params, "model"),
                             hint,
                             path,
@@ -65,8 +65,7 @@ def check(ctx: Context) -> list[Diagnostic]:
                         ctx.diag(
                             "LL402",
                             Severity.INFO,
-                            f"provider prefix '{prefix}' in {path} is not in the litellm provider list; "
-                            "fine if custom_llm_provider is set elsewhere",
+                            msg("ll402_info", prefix=prefix, path=path),
                             value_pos(params, "model"),
                             None,
                             path,

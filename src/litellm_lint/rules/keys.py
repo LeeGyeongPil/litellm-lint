@@ -6,6 +6,7 @@ from typing import Any
 
 from ..context import Context
 from ..diagnostics import Diagnostic, Severity
+from ..i18n import EN, Joined, msg
 from ..includes import include_entries
 from ..loader import item_pos, key_pos, value_pos
 from ..suggest import closest
@@ -21,7 +22,7 @@ def _snapshot_keys(snap: dict[str, Any], section: str) -> dict[str, Any]:
 
 
 def type_problem(value: Any, allowed: list[str]) -> str | None:
-    """Return the expected-type text if ``value`` clearly does not fit, else None.
+    """Return the expected-type text (English) if ``value`` clearly does not fit, else None.
 
     Lenient on purpose: scalars may stand in for strings, numeric text for numbers,
     ``os.environ/NAME`` for anything, and an empty value (None) for anything.
@@ -52,6 +53,15 @@ def type_problem(value: Any, allowed: list[str]) -> str | None:
     return None if ok else " or ".join(want)
 
 
+def _expected_msg(expected: str) -> Joined:
+    """The 'string or number' part of an LL002 message, so it can be shown in either language."""
+    names = []
+    for word in expected.split(" or "):
+        key = f"type_{word}"
+        names.append(msg(key) if key in EN else word)
+    return Joined(names, "sep_or")
+
+
 def _check_unknown_key(
     ctx: Context, section: str, key: str, mapping: dict, known: dict[str, Any], key_path: str
 ) -> list[Diagnostic]:
@@ -66,8 +76,7 @@ def _check_unknown_key(
                 ctx.diag(
                     "LL003",
                     Severity.ERROR,
-                    f"'{key}' is not a valid router_settings key; move it to {target} "
-                    f"(the proxy refuses to start with this error)",
+                    msg("ll003_misplaced", key=key, target=target),
                     pos,
                     target,
                     key_path,
@@ -76,12 +85,12 @@ def _check_unknown_key(
     if section != "litellm_params":
         others = [s for s in SECTIONS if s != section and key in _snapshot_keys(snap, s)]
         if others:
-            names = " or ".join(others)
+            names = " or ".join(others)  # suggestion text (stays English, machine readable)
             return [
                 ctx.diag(
                     "LL001",
                     Severity.ERROR,
-                    f"unknown key '{key}' in {section}; it belongs in {names}",
+                    msg("ll001_wrong_section", key=key, section=section, names=Joined(others, "sep_or")),
                     pos,
                     names,
                     key_path,
@@ -94,7 +103,7 @@ def _check_unknown_key(
                 ctx.diag(
                     "LL001",
                     Severity.WARNING,
-                    f"unknown key '{key}' in {section} (did you mean '{hint}'?)",
+                    msg("ll001_hint", key=key, section=section, hint=hint),
                     pos,
                     hint,
                     key_path,
@@ -104,19 +113,19 @@ def _check_unknown_key(
             ctx.diag(
                 "LL001",
                 Severity.INFO,
-                f"key '{key}' in {section} is not a common parameter; the proxy passes it on to the provider",
+                msg("ll001_param_info", key=key, section=section),
                 pos,
                 None,
                 key_path,
             )
         ]
     if hint:
-        return [ctx.diag("LL001", Severity.ERROR, f"unknown key '{key}' in {section} (did you mean '{hint}'?)", pos, hint, key_path)]
+        return [ctx.diag("LL001", Severity.ERROR, msg("ll001_hint", key=key, section=section, hint=hint), pos, hint, key_path)]
     return [
         ctx.diag(
             "LL001",
             Severity.WARNING,
-            f"unknown key '{key}' in {section}: not in the litellm {version} snapshot (may be a newer setting, or a typo)",
+            msg("ll001_snapshot", key=key, section=section, version=version),
             pos,
             None,
             key_path,
@@ -147,7 +156,7 @@ def _check_mapping(ctx: Context, section: str, mapping: dict, known: dict[str, A
                 ctx.diag(
                     "LL002",
                     Severity.ERROR,
-                    f"'{key_path}' should be {expected}, found {_kind(mapping[key])}",
+                    msg("ll002_type", path=key_path, expected=_expected_msg(expected), found=_kind(mapping[key])),
                     value_pos(mapping, key),
                     None,
                     key_path,
@@ -158,14 +167,14 @@ def _check_mapping(ctx: Context, section: str, mapping: dict, known: dict[str, A
 
 def _kind(value: Any) -> str:
     if isinstance(value, dict):
-        return "a mapping"
+        return msg("kind_mapping")
     if isinstance(value, list):
-        return "a list"
+        return msg("kind_list")
     if isinstance(value, bool):
-        return "a boolean"
+        return msg("kind_boolean")
     if isinstance(value, (int, float)):
-        return "a number"
-    return "text"
+        return msg("kind_number")
+    return msg("kind_text")
 
 
 def check(ctx: Context) -> list[Diagnostic]:
@@ -177,9 +186,9 @@ def check(ctx: Context) -> list[Diagnostic]:
 
     for key in list(cfg):
         if not isinstance(key, str):
-            out.append(ctx.diag("LL002", Severity.ERROR, "a top-level key is not text (keys must be names like 'model_list')", key_pos(cfg, key), None, str(key)))
+            out.append(ctx.diag("LL002", Severity.ERROR, msg("ll002_key_not_text"), key_pos(cfg, key), None, str(key)))
     if include_entries(cfg) is None:
-        out.append(ctx.diag("LL002", Severity.ERROR, "'include' should be a list of file paths", value_pos(cfg, "include"), None, "include"))
+        out.append(ctx.diag("LL002", Severity.ERROR, msg("ll002_include_list"), value_pos(cfg, "include"), None, "include"))
 
     for section in SECTIONS + ("environment_variables",):
         if section in cfg and cfg[section] is not None and not isinstance(cfg[section], dict):
@@ -187,7 +196,7 @@ def check(ctx: Context) -> list[Diagnostic]:
                 ctx.diag(
                     "LL002",
                     Severity.ERROR,
-                    f"'{section}' should be a mapping (key: value pairs), found {_kind(cfg[section])}",
+                    msg("ll002_section_mapping", section=section, found=_kind(cfg[section])),
                     value_pos(cfg, section),
                     None,
                     section,
@@ -202,22 +211,22 @@ def check(ctx: Context) -> list[Diagnostic]:
     models = cfg.get("model_list")
     if models is not None and not isinstance(models, list):
         out.append(
-            ctx.diag("LL002", Severity.ERROR, "'model_list' should be a list, found " + _kind(models), value_pos(cfg, "model_list"), None, "model_list")
+            ctx.diag("LL002", Severity.ERROR, msg("ll002_model_list", found=_kind(models)), value_pos(cfg, "model_list"), None, "model_list")
         )
     elif isinstance(models, list):
         for i, entry in enumerate(models):
             base = f"model_list[{i}]"
             pos = item_pos(models, i)
             if not isinstance(entry, dict):
-                out.append(ctx.diag("LL002", Severity.ERROR, f"{base} should be a mapping with model_name and litellm_params", pos, None, base))
+                out.append(ctx.diag("LL002", Severity.ERROR, msg("ll002_entry_mapping", base=base), pos, None, base))
                 continue
             if not isinstance(entry.get("model_name"), str) or not entry.get("model_name"):
-                out.append(ctx.diag("LL002", Severity.ERROR, f"{base} has no model_name (clients could not call it)", pos, None, base))
+                out.append(ctx.diag("LL002", Severity.ERROR, msg("ll002_entry_no_name", base=base), pos, None, base))
             params = entry.get("litellm_params")
             if not isinstance(params, dict):
-                out.append(ctx.diag("LL002", Severity.ERROR, f"{base} has no litellm_params mapping", pos, None, base))
+                out.append(ctx.diag("LL002", Severity.ERROR, msg("ll002_entry_no_params", base=base), pos, None, base))
                 continue
             if not isinstance(params.get("model"), str) or not params.get("model"):
-                out.append(ctx.diag("LL002", Severity.ERROR, f"{base}.litellm_params has no model (expected provider/model)", key_pos(entry, "litellm_params"), None, f"{base}.litellm_params"))
+                out.append(ctx.diag("LL002", Severity.ERROR, msg("ll002_entry_no_model", base=base), key_pos(entry, "litellm_params"), None, f"{base}.litellm_params"))
             out.extend(_check_mapping(ctx, "litellm_params", params, snap["litellm_params"], f"{base}.litellm_params"))
     return out

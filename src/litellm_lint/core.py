@@ -7,6 +7,7 @@ from typing import Iterable
 from . import snapshot as snapshot_mod
 from .context import Context
 from .diagnostics import Diagnostic, Report, Severity, apply_ignore, validate_codes
+from .i18n import msg
 from .includes import collect_included_models
 from .loader import YamlProblem, load_config
 from .rules import deployments, env, keys, refs, safety
@@ -50,8 +51,7 @@ def check_file(
             ctx.diag(
                 "LL000",
                 Severity.INFO,
-                f"installed litellm {installed} differs from schema snapshot {snap['meta']['litellm_version']}; "
-                "keys added in newer releases may be reported as unknown",
+                msg("ll000", installed=installed, snapshot=snap["meta"]["litellm_version"]),
             )
         )
     try:
@@ -59,7 +59,7 @@ def check_file(
             found.extend(module.check(ctx))
     except RecursionError:  # the loader limits depth, so this is only a last line of defence
         report.diagnostics = apply_ignore(
-            [ctx.diag("LL900", Severity.ERROR, "nesting too deep: the document could not be walked", (1, 1))], ignore
+            [ctx.diag("LL900", Severity.ERROR, msg("yaml_walk_too_deep"), (1, 1))], ignore
         )
         return report
     report.diagnostics = apply_ignore(found, ignore)

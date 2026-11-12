@@ -5,6 +5,8 @@ import enum
 from dataclasses import dataclass, field
 from typing import Any, Iterable
 
+from .i18n import msg
+
 
 class LintUsageError(Exception):
     """Bad input from the caller (missing file, unreadable env file ...). CLI exit code 2."""
@@ -103,6 +105,4 @@ def apply_ignore(diags: Iterable[Diagnostic], ignore: Iterable[str]) -> list[Dia
 def validate_codes(codes: Iterable[str]) -> None:
     for code in codes:
         if code.strip().upper() not in RULES:
-            raise LintUsageError(
-                f"unknown rule code {code!r} in --ignore; known codes: {', '.join(sorted(RULES))}"
-            )
+            raise LintUsageError(msg("unknown_rule_code", code=code, known=", ".join(sorted(RULES))))

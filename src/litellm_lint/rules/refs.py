@@ -11,6 +11,7 @@ from typing import Any, Iterator
 
 from ..context import Context
 from ..diagnostics import Diagnostic, Severity
+from ..i18n import msg
 from ..loader import item_pos, key_pos, value_pos
 from ..suggest import closest
 
@@ -89,7 +90,7 @@ def _check_fallback_shapes(ctx: Context) -> list[Diagnostic]:
     out: list[Diagnostic] = []
 
     def bad(where: str, what: str, pos: tuple[int | None, int | None]) -> None:
-        out.append(ctx.diag("LL002", Severity.ERROR, f"{where}: {what}", pos, None, where))
+        out.append(ctx.diag("LL002", Severity.ERROR, msg("ll002_fb_where", where=where, what=what), pos, None, where))
 
     for section in ("litellm_settings", "router_settings"):
         mapping = ctx.section(section)
@@ -104,36 +105,36 @@ def _check_fallback_shapes(ctx: Context) -> list[Diagnostic]:
                 pos = item_pos(value, i)
                 if key == "default_fallbacks":
                     if _target_name(item) is None:
-                        bad(where, f"item {i} should be a model name (text), found {_kind_of(item)}", pos)
+                        bad(where, msg("fb_item_name", i=i, found=_kind_of(item)), pos)
                     continue
                 if not isinstance(item, dict):
-                    bad(where, f"item {i} should be a mapping like 'source-model: [fallback-model]', found {_kind_of(item)}", pos)
+                    bad(where, msg("fb_item_mapping", i=i, found=_kind_of(item)), pos)
                     continue
                 for src, targets in item.items():
                     src_pos = key_pos(item, src)
                     if not isinstance(src, str):
-                        bad(where, f"item {i} has a source that is not a model name (text)", src_pos)
+                        bad(where, msg("fb_source_text", i=i), src_pos)
                     if isinstance(targets, list):
                         for j, target in enumerate(targets):
                             if _target_name(target) is None:
-                                bad(where, f"item {i} target {j} should be a model name (text), found {_kind_of(target)}", item_pos(targets, j))
+                                bad(where, msg("fb_target", i=i, j=j, found=_kind_of(target)), item_pos(targets, j))
                     elif _target_name(targets) is None:
-                        bad(where, f"item {i} should map to a list of model names, found {_kind_of(targets)}", value_pos(item, src))
+                        bad(where, msg("fb_maps_to_list", i=i, found=_kind_of(targets)), value_pos(item, src))
     return out
 
 
 def _kind_of(value: Any) -> str:
     if isinstance(value, dict):
-        return "a mapping"
+        return msg("kind_mapping")
     if isinstance(value, list):
-        return "a list"
+        return msg("kind_list")
     if value is None:
-        return "an empty value"
+        return msg("kind_empty")
     if isinstance(value, bool):
-        return "a boolean"
+        return msg("kind_boolean")
     if isinstance(value, (int, float)):
-        return "a number"
-    return "text"
+        return msg("kind_number")
+    return msg("kind_text")
 
 
 def check(ctx: Context) -> list[Diagnostic]:
@@ -145,9 +146,9 @@ def check(ctx: Context) -> list[Diagnostic]:
     soft = general.get("store_model_in_db") is True or not index.has_models
     missing_sev = Severity.WARNING if soft else Severity.ERROR
     why = (
-        " (warning only: store_model_in_db is on)"
+        msg("why_db")
         if general.get("store_model_in_db") is True
-        else (" (warning only: model_list is empty or absent)" if not index.has_models else "")
+        else (msg("why_empty") if not index.has_models else "")
     )
 
     fallback_keys = ctx.snapshot["rules"]["fallback_keys"]
@@ -166,7 +167,7 @@ def check(ctx: Context) -> list[Diagnostic]:
                             ctx.diag(
                                 "LL102",
                                 Severity.WARNING,
-                                f"fallback source group '{src}' in {where} is not a model_name in model_list",
+                                msg("ll102", src=src, where=where),
                                 src_pos,
                                 closest(src, index.all_names()),
                                 where,
@@ -174,12 +175,12 @@ def check(ctx: Context) -> list[Diagnostic]:
                         )
                 if not index.name_exists(target):
                     hint = closest(target, index.all_names())
-                    extra = f" (did you mean '{hint}'?)" if hint else ""
+                    extra = msg("did_you_mean", hint=hint) if hint else ""
                     out.append(
                         ctx.diag(
                             "LL101",
                             missing_sev,
-                            f"fallback target '{target}' in {where} is not a model_name in model_list{extra}{why}",
+                            msg("ll101", target=target, where=where, extra=extra, why=why),
                             target_pos,
                             hint,
                             where,
@@ -194,7 +195,7 @@ def check(ctx: Context) -> list[Diagnostic]:
             if not isinstance(target, str) or index.group_exists(target):
                 continue
             hint = closest(target, index.names)
-            extra = f" (did you mean '{hint}'?)" if hint else ""
+            extra = msg("did_you_mean", hint=hint) if hint else ""
             pos = value_pos(alias, name)
             if isinstance(spec, dict):
                 pos = value_pos(spec, "model")
@@ -202,7 +203,7 @@ def check(ctx: Context) -> list[Diagnostic]:
                 ctx.diag(
                     "LL103",
                     missing_sev,
-                    f"model_group_alias '{name}' points at '{target}', which is not a model_name in model_list{extra}{why}",
+                    msg("ll103", name=name, target=target, extra=extra, why=why),
                     pos,
                     hint,
                     "router_settings.model_group_alias",
@@ -217,7 +218,7 @@ def check(ctx: Context) -> list[Diagnostic]:
                     ctx.diag(
                         "LL104",
                         Severity.WARNING,
-                        f"model_group_retry_policy group '{group}' is not a model_name in model_list",
+                        msg("ll104", group=group),
                         key_pos(policy, group),
                         closest(str(group), index.all_names()),
                         "router_settings.model_group_retry_policy",

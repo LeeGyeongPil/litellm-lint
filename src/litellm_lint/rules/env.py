@@ -8,6 +8,7 @@ from typing import Iterable
 
 from ..context import Context
 from ..diagnostics import Diagnostic, LintUsageError, Severity
+from ..i18n import Joined, msg
 from ..loader import iter_scalars
 from ..suggest import closest
 
@@ -21,9 +22,9 @@ def dotenv_names(path: Path) -> frozenset[str]:
     try:
         text = path.read_text(encoding="utf-8")
     except FileNotFoundError:
-        raise LintUsageError(f"env file not found: {path}. Fix the --env-file path or remove the option.") from None
+        raise LintUsageError(msg("env_file_not_found", path=path)) from None
     except (OSError, UnicodeDecodeError) as exc:
-        raise LintUsageError(f"cannot read env file {path} ({type(exc).__name__}).") from None
+        raise LintUsageError(msg("env_file_unreadable", path=path, name=type(exc).__name__)) from None
     names = set()
     for line in text.splitlines():
         match = _DOTENV_LINE.match(line)
@@ -35,7 +36,7 @@ def dotenv_names(path: Path) -> frozenset[str]:
 def build_sources(env_files: Iterable[Path], use_os_env: bool) -> list[tuple[str, frozenset[str]]]:
     sources = [(str(p), dotenv_names(p)) for p in env_files]
     if use_os_env:
-        sources.append(("process environment", frozenset(os.environ)))
+        sources.append((msg("src_process_env"), frozenset(os.environ)))
     return sources
 
 
@@ -46,9 +47,10 @@ def check(ctx: Context) -> list[Diagnostic]:
     config_env = ctx.section("environment_variables") or {}
     sources = list(ctx.env_sources)
     if config_env:
-        sources.append(("config environment_variables", frozenset(str(k) for k in config_env)))
+        sources.append((msg("src_config_env"), frozenset(str(k) for k in config_env)))
     known = set().union(*(names for _, names in sources)) if sources else set()
-    searched = ", ".join(label for label, _ in sources) or "no sources"
+    labels = [label for label, _ in sources]
+    searched = Joined(labels, "sep_comma") if labels else msg("src_none")
 
     for key_path, _last, value, pos in iter_scalars(ctx.config):
         if not isinstance(value, str) or not value.startswith(PREFIX):
@@ -59,7 +61,7 @@ def check(ctx: Context) -> list[Diagnostic]:
                 ctx.diag(
                     "LL201",
                     Severity.ERROR,
-                    f"malformed os.environ/ reference at {key_path} (expected os.environ/NAME; the text is not shown)",
+                    msg("ll201_malformed", path=key_path),
                     pos,
                     key=key_path,
                 )
@@ -68,14 +70,13 @@ def check(ctx: Context) -> list[Diagnostic]:
         if name in known:
             continue
         hint = closest(name, known, cutoff=0.8)
-        extra = f" (did you mean '{hint}'?)" if hint else ""
+        extra = msg("did_you_mean", hint=hint) if hint else ""
         if uses_kms:
             out.append(
                 ctx.diag(
                     "LL201",
                     Severity.INFO,
-                    f"environment variable '{name}' not found in: {searched}; "
-                    f"general_settings.key_management_system is set, so it may be read from the secret manager{extra}",
+                    msg("ll201_kms", name=name, searched=searched, extra=extra),
                     pos,
                     hint,
                     key_path,
@@ -86,7 +87,7 @@ def check(ctx: Context) -> list[Diagnostic]:
                 ctx.diag(
                     "LL201",
                     Severity.ERROR,
-                    f"environment variable '{name}' not found in: {searched}{extra}",
+                    msg("ll201_missing", name=name, searched=searched, extra=extra),
                     pos,
                     hint,
                     key_path,
