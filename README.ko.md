@@ -22,7 +22,7 @@ uv tool install git+https://github.com/LeeGyeongPil/litellm-lint
 litellm-lint --lang ko --version
 ```
 ```
-litellm-lint 0.2.0 (스키마 스냅숏: litellm 1.108.4)
+litellm-lint 0.2.1 (스키마 스냅숏: litellm 1.108.4)
 ```
 설치 없이 한 번만 돌려 보려면 `uvx --from git+https://github.com/LeeGyeongPil/litellm-lint litellm-lint check config.yaml`. 레포를 받아 직접 쓰려면 `git clone` 후 `uv run litellm-lint ...`. 최소 리눅스 이미지에는 `git` 과 `curl` 이 필요합니다.
 
@@ -33,7 +33,7 @@ git clone https://github.com/LeeGyeongPil/litellm-lint && cd litellm-lint
 uv run litellm-lint --lang ko check examples/bad_config.yaml --env-file examples/.env.example
 ```
 ```
-litellm-lint 0.2.0 (스키마 스냅숏: litellm 1.108.4, 생성일 2026-11-10)
+litellm-lint 0.2.1 (스키마 스냅숏: litellm 1.108.4, 생성일 2026-11-10)
 examples/bad_config.yaml:7:16: 오류 LL201 환경변수 'OPENAI_API_KEYY' 을(를) 다음에서 찾을 수 없습니다: examples/.env.example, 프로세스 환경변수 ('OPENAI_API_KEY' 을(를) 말씀하신 것입니까?)
 examples/bad_config.yaml:17:7: 경고 LL001 litellm_params 에 알 수 없는 키 'api_bse' 가 있습니다 ('api_base' 을(를) 말씀하신 것입니까?)
 examples/bad_config.yaml:20:3: 오류 LL001 router_settings 에 알 수 없는 키 'num_retires' 가 있습니다 ('num_retries' 을(를) 말씀하신 것입니까?)
@@ -48,7 +48,7 @@ examples/bad_config.yaml:29:3: 경고 LL001 general_settings 에 알 수 없는 
 uv run litellm-lint --lang ko check examples/good_config.yaml --env-file examples/.env.example
 ```
 ```
-litellm-lint 0.2.0 (스키마 스냅숏: litellm 1.108.4, 생성일 2026-11-10)
+litellm-lint 0.2.1 (스키마 스냅숏: litellm 1.108.4, 생성일 2026-11-10)
 오류 0건, 경고 0건
 ```
 ![문제없는 설정의 검사 결과](docs/images/02-good.ko.png)
@@ -73,7 +73,7 @@ uv run litellm-lint --lang ko check examples/good_config.yaml --env-file example
 LITELLM_LINT_LANG=ko uv run litellm-lint check examples/good_config.yaml --env-file examples/.env.example
 ```
 ```
-litellm-lint 0.2.0 (스키마 스냅숏: litellm 1.108.4, 생성일 2026-11-10)
+litellm-lint 0.2.1 (스키마 스냅숏: litellm 1.108.4, 생성일 2026-11-10)
 오류 0건, 경고 0건
 ```
 텍스트 출력만 번역됩니다. `--format json`, `schema` 내보내기, 규칙 코드, 종료 코드는 두 언어에서 똑같으므로, 출력을 읽는 스크립트는 `--format json` 을 쓰거나 `--lang en` 을 줍니다. Python API(`Diagnostic.message`)는 영어 그대로입니다.
@@ -95,7 +95,7 @@ litellm-lint 0.2.0 (스키마 스냅숏: litellm 1.108.4, 생성일 2026-11-10)
 uv run litellm-lint --lang ko check examples/good_config.yaml examples/bad_config.yaml --env-file examples/.env.example
 ```
 ```
-litellm-lint 0.2.0 (스키마 스냅숏: litellm 1.108.4, 생성일 2026-11-10)
+litellm-lint 0.2.1 (스키마 스냅숏: litellm 1.108.4, 생성일 2026-11-10)
 examples/good_config.yaml: 오류 0건, 경고 0건
 examples/bad_config.yaml:7:16: 오류 LL201 환경변수 'OPENAI_API_KEYY' 을(를) 다음에서 찾을 수 없습니다: examples/.env.example, 프로세스 환경변수 ('OPENAI_API_KEY' 을(를) 말씀하신 것입니까?)
 examples/bad_config.yaml:17:7: 경고 LL001 litellm_params 에 알 수 없는 키 'api_bse' 가 있습니다 ('api_base' 을(를) 말씀하신 것입니까?)
@@ -113,7 +113,7 @@ examples/bad_config.yaml: 오류 5건, 경고 2건
 uv run litellm-lint --lang ko check examples/bad_config.yaml --no-os-env --ignore LL001
 ```
 ```
-litellm-lint 0.2.0 (스키마 스냅숏: litellm 1.108.4, 생성일 2026-11-10)
+litellm-lint 0.2.1 (스키마 스냅숏: litellm 1.108.4, 생성일 2026-11-10)
 examples/bad_config.yaml:7:16: 오류 LL201 환경변수 'OPENAI_API_KEYY' 을(를) 다음에서 찾을 수 없습니다: 확인할 출처 없음
 examples/bad_config.yaml:12:16: 오류 LL201 환경변수 'OPENAI_API_KEY' 을(를) 다음에서 찾을 수 없습니다: 확인할 출처 없음
 examples/bad_config.yaml:22:18: 오류 LL101 router_settings.fallbacks 의 폴백 대상 'gpt-backup' 이(가) model_list 의 model_name 에 없습니다
@@ -130,7 +130,7 @@ uv run litellm-lint check examples/good_config.yaml --env-file examples/.env.exa
 ```json
 {
   "tool": "litellm-lint",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "snapshot": {
     "litellm_version": "1.108.4",
     "generated_at": "2026-11-10"
@@ -151,7 +151,7 @@ uv run litellm-lint check examples/good_config.yaml --env-file examples/.env.exa
 ```yaml
 repos:
   - repo: https://github.com/LeeGyeongPil/litellm-lint
-    rev: v0.2.0
+    rev: v0.2.1
     hooks:
       - id: litellm-lint
         args: [--no-os-env, --env-file, deploy.env.example]

@@ -182,7 +182,7 @@ def test_korean_text_report_shape(monkeypatch, capsys):
     code, out, _ = _run(capsys, "--lang", "ko", "check", BAD, "--env-file", ENV, "--no-os-env")
     assert code == 1
     lines = out.strip().splitlines()
-    assert lines[0].startswith("litellm-lint 0.2.0 (스키마 스냅숏: litellm ")
+    assert lines[0].startswith("litellm-lint 0.2.1 (스키마 스냅숏: litellm ")
     assert lines[-1] == "오류 5건, 경고 2건"
     assert any(" 오류 LL101 " in line and "model_name" in line for line in lines)
     assert any(" 경고 LL001 " in line for line in lines)
@@ -236,7 +236,7 @@ def test_korean_usage_errors_and_no_command(monkeypatch, capsys, tmp_path):
     code, _, err = _run(capsys, "--lang", "ko")
     assert code == 2 and "명령을 고르십시오" in err and "사용법:" in err
     code, out, _ = _run(capsys, "--lang", "ko", "--version")
-    assert code == 0 and out.startswith("litellm-lint 0.2.0 (스키마 스냅숏: litellm ")
+    assert code == 0 and out.startswith("litellm-lint 0.2.1 (스키마 스냅숏: litellm ")
 
 
 def test_english_usage_errors_unchanged(monkeypatch, capsys, tmp_path):
