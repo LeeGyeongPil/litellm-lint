@@ -111,6 +111,21 @@ def test_cli_exit_2_for_bomb_and_depth(tmp_path, capsys):
         assert "Traceback" not in out.out + out.err
 
 
+def test_include_symlink_loop_is_ll900_not_internal_error(tmp_path, capsys):
+    import pytest
+
+    try:
+        (tmp_path / "a.yaml").symlink_to("b.yaml")
+        (tmp_path / "b.yaml").symlink_to("a.yaml")
+    except (OSError, NotImplementedError):
+        pytest.skip("cannot create symlinks here")
+    cfg = tmp_path / "config.yaml"
+    cfg.write_text("include:\n  - a.yaml\nmodel_list: []\n", encoding="utf-8")
+    assert main(["check", str(cfg), "--no-os-env", "--lang", "en"]) == 2
+    out = capsys.readouterr()
+    assert "LL900" in out.out and "internal error" not in out.out + out.err
+
+
 def test_unexpected_exception_becomes_internal_error(monkeypatch, capsys):
     def boom(*a, **k):
         raise RuntimeError("secret-looking-value")

@@ -53,7 +53,7 @@ def collect_included_models(config: Any, root: Path) -> list[Any]:
         shown = str(target)
         try:
             resolved = target.resolve()
-        except OSError:
+        except (OSError, RuntimeError):  # RuntimeError: symlink loop on Python < 3.13
             raise _problem(msg("inc_unresolvable"), shown) from None
         if resolved in seen:
             continue  # the proxy reads each file once
