@@ -5,6 +5,11 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 
 ## [Unreleased]
 
+## [0.2.1] - 2026-11-19
+
+### Fixed
+- An `include` that points into a loop of symbolic links (`a.yaml` -> `b.yaml` -> `a.yaml`) is now reported as an LL900 diagnostic (exit 2) on Python 3.10-3.12 instead of "internal error".
+
 ## [0.2.0] - 2026-11-12
 
 ### Added
@@ -39,12 +44,13 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 
 ### Known limitations
 - (Fixed in 0.1.1) In text mode, a problem found in an `include`d file is shown with the main config's file name plus the included file's line and column (JSON output has the right file).
-- An `include` loop made of links, or a list used as a top-level mapping key, ends with "internal error" (exit 2) instead of an LL900 diagnostic.
+- An `include` loop made of links (fixed in Unreleased), or a list used as a top-level mapping key, ends with "internal error" (exit 2) instead of an LL900 diagnostic.
 - When anchors/aliases reuse the same `litellm_params` across many deployments, the same diagnostic is repeated once per deployment.
 - (Fixed in 0.1.2) Summary lines were always plural ("1 errors", "1 warnings").
 - `Report.diagnostics` from the Python API is not sorted by line; sort it yourself.
 
-[Unreleased]: https://github.com/LeeGyeongPil/litellm-lint/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/LeeGyeongPil/litellm-lint/compare/v0.2.1...HEAD
+[0.2.1]: https://github.com/LeeGyeongPil/litellm-lint/releases/tag/v0.2.1
 [0.2.0]: https://github.com/LeeGyeongPil/litellm-lint/releases/tag/v0.2.0
 [0.1.2]: https://github.com/LeeGyeongPil/litellm-lint/releases/tag/v0.1.2
 [0.1.1]: https://github.com/LeeGyeongPil/litellm-lint/releases/tag/v0.1.1
