@@ -255,7 +255,7 @@ git clone https://github.com/LeeGyeongPil/litellm-lint && cd litellm-lint
 uv run pytest
 ```
 ```
-98 passed, 1 skipped in 3.59s
+99 passed, 1 skipped in 3.59s
 ```
 건너뛴 1개는 litellm 이 있어야 하는 스냅숏 전체 생성 테스트입니다. 버그·제안은 이슈로 남겨 주시기 바랍니다. 변경 기록은 [CHANGELOG.md](CHANGELOG.md).
 

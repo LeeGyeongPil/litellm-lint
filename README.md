@@ -257,7 +257,7 @@ git clone https://github.com/LeeGyeongPil/litellm-lint && cd litellm-lint
 uv run pytest
 ```
 ```
-98 passed, 1 skipped in 3.59s
+99 passed, 1 skipped in 3.59s
 ```
 The 1 skipped test is the full snapshot-generation test, which needs litellm. Please leave bugs and suggestions as issues. Change history is in [CHANGELOG.md](CHANGELOG.md).
 
